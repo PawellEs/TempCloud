@@ -1,5 +1,8 @@
-﻿using System.Data.Entity.Migrations;
+﻿using Microsoft.AspNet.Identity;
+using System;
+using System.Data.Entity.Migrations;
 using TempCloud.DataModel.Context;
+using TempCloud.DataModel.Models;
 
 namespace TempCloud.DataModel.Migrations
 {
@@ -33,7 +36,7 @@ namespace TempCloud.DataModel.Migrations
                 
             };
             manager.Create(user, "qwerty");*/
-            /*var passwordHash = new PasswordHasher();
+            var passwordHash = new PasswordHasher();
             string password = passwordHash.HashPassword("qwerty");
             context.Users.AddOrUpdate(u => u.UserName,
                 new ApplicationUser
@@ -48,8 +51,8 @@ namespace TempCloud.DataModel.Migrations
                     Active = 1,
                     SecurityStamp = Guid.NewGuid().ToString("D")
 
-                });*/
-            //
+                });
+
         }
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using TempCloud.WebApi.Models;
+using TempCloud.DataModel.Models;
 
 namespace TempCloud.WebApi.Providers
 {

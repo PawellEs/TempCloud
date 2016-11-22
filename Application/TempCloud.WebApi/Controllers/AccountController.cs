@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using TempCloud.WebApi.Models;
 using TempCloud.WebApi.Providers;
 using TempCloud.WebApi.Results;
+using TempCloud.DataModel.Models;
 
 namespace TempCloud.WebApi.Controllers
 {
