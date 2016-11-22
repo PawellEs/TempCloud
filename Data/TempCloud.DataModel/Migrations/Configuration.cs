@@ -36,23 +36,23 @@ namespace TempCloud.DataModel.Migrations
                 
             };
             manager.Create(user, "qwerty");*/
-            var passwordHash = new PasswordHasher();
-            string password = passwordHash.HashPassword("qwerty");
-            context.Users.AddOrUpdate(u => u.UserName,
-                new ApplicationUser
-                {
-                    UserName = "admin@admin.com",
-                    PasswordHash = password,
-                    PhoneNumber = "08869879",
-                    Email = "admin@admin.com",
-                    EmailConfirmed = true,
-                    LastLoginDate = DateTime.Now,
-                    RegistrationDate = DateTime.Now,
-                    Active = 1,
-                    SecurityStamp = Guid.NewGuid().ToString("D")
 
-                });
+            //var passwordHash = new PasswordHasher();
+            //string password = passwordHash.HashPassword("qwerty");
+            //context.Users.AddOrUpdate(u => u.UserName,
+            //    new ApplicationUser
+            //    {
+            //        UserName = "admin@admin.com",
+            //        PasswordHash = password,
+            //        PhoneNumber = "08869879",
+            //        Email = "admin@admin.com",
+            //        EmailConfirmed = true,
+            //        LastLoginDate = DateTime.Now,
+            //        RegistrationDate = DateTime.Now,
+            //        Active = 1,
+            //        SecurityStamp = Guid.NewGuid().ToString("D")
 
+            //    });
         }
     }
 }

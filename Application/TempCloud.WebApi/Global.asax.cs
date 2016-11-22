@@ -16,6 +16,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using TempCloud.DataModel.Models;
+using TempCloud.Service.Interfaces;
+using TempCloud.Service.Services;
 using static TempCloud.WebApi.ApplicationUserManager;
 
 namespace TempCloud.WebApi
@@ -53,12 +55,8 @@ namespace TempCloud.WebApi
 
 
             //Services
-            //container.Register<IFarmService, FarmService>(Lifestyle.Transient);
-            //container.Register<ISystemService, SystemService>(Lifestyle.Transient);
-            //container.Register<IDeviceService, DeviceService>(Lifestyle.Transient);
-            //container.Register<ICRFIService, CRFIService>(Lifestyle.Transient);
-            //container.Register<IUserService, UserService>(Lifestyle.Transient);
-
+            container.Register<IDeviceService, DeviceService>(Lifestyle.Transient);
+            container.Register<IUserService, UserService>(Lifestyle.Transient);
 
             container.Verify();
 

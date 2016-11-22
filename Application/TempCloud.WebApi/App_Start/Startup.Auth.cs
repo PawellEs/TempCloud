@@ -78,7 +78,7 @@ namespace TempCloud.WebApi
                 TokenEndpointPath = new PathString("/oauth/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new JwtOauthProvider(),
-                AccessTokenFormat = new CustomJwtFormat("http://localhost:59822")
+                AccessTokenFormat = new CustomJwtFormat($"http://{System.Web.HttpContext.Current.Request.Url.Host}:{System.Web.HttpContext.Current.Request.Url.Port}")
             };
 
             // OAuth 2.0 Bearer Access Token Generation
@@ -88,7 +88,7 @@ namespace TempCloud.WebApi
         private void ConfigureOAuthTokenConsumption(IAppBuilder app)
         {
 
-            var issuer = "http://localhost:59822";
+            var issuer = $"http://{System.Web.HttpContext.Current.Request.Url.Host}:{System.Web.HttpContext.Current.Request.Url.Port}"; //"http://localhost:59822";
             string audienceId = ConfigurationManager.AppSettings["AudienceId"];
             byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["AudienceSecret"]);
 
@@ -101,7 +101,8 @@ namespace TempCloud.WebApi
                     IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
                     {
                         new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret)
-                    }
+                    },
+                    TokenHandler = new CustomJwtTokenHandler()
                 });
         }
     }

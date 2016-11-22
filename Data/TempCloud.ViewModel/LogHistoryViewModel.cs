@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TempCloud.ViewModel
 {
-    public class LogViewModel
+    public class LogHistoryViewModel
     {
         public int Id { get; set; }
         public DateTime LogDateTime { get; set; }
@@ -15,6 +15,6 @@ namespace TempCloud.ViewModel
         public string DeviceName { get; set; }
         public int DeviceType { get; set; }
         public string DeviceTypeName { get; set; }
-        public List<StatusViewModel> Statuses { get; set; }
+        public List<StatusHistoryViewModel> Statuses { get; set; }
     }
 }

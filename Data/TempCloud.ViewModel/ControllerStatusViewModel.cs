@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TempCloud.ViewModel
 {
-    public class StatusViewModel
+    public class ControllerStatusViewModel      // CrfiStatusViewModel
     {
-        public int Id { get; set; }
-        public int Value { get; set; }
+        public int DeviceId { get; set; }
+        public DateTime SystemDateTime { get; set; }
         public int TypeId { get; set; }
-        public string TextValue { get; set; }
+        public int Value { get; set; }
     }
 }

@@ -17,6 +17,8 @@ using TempCloud.WebApi.Models;
 using TempCloud.WebApi.Providers;
 using TempCloud.WebApi.Results;
 using TempCloud.DataModel.Models;
+using TempCloud.WebApi;
+using TempCloud.Service.Interfaces;
 
 namespace TempCloud.WebApi.Controllers
 {
@@ -26,9 +28,14 @@ namespace TempCloud.WebApi.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
+        private readonly IUserService service;
 
-        public AccountController()
+        public AccountController(ApplicationUserManager userManager,
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat, IUserService userService)
         {
+            this.service = userService;
+            UserManager = userManager;
+            AccessTokenFormat = accessTokenFormat;
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -151,6 +158,24 @@ namespace TempCloud.WebApi.Controllers
                 return GetErrorResult(result);
             }
 
+            return Ok();
+        }
+
+        [Route("DeleteUser")]
+        public IHttpActionResult DeleteUser(string userId)
+        {
+            if (!HttpContext.Current.User.IsInRole("Admin"))
+            {
+                return Unauthorized();
+            }
+
+            //string userId = HttpContext.Current.User.Identity.GetUserId();
+            //if (string.IsNullOrEmpty(userId))
+            //{
+            //   return NotFound();
+            //}
+
+            this.service.DeleteUser(userId);
             return Ok();
         }
 

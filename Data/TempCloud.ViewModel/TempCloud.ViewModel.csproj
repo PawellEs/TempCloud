@@ -41,10 +41,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeviceDetailViewModel.cs" />
+    <Compile Include="DeviceExceptionViewModel.cs" />
+    <Compile Include="DeviceFormViewModel.cs" />
+    <Compile Include="ControllerStatusViewModel.cs" />
+    <Compile Include="DeviceStatusViewModel.cs" />
     <Compile Include="DeviceViewModel.cs" />
+    <Compile Include="LogHistoryViewModel.cs" />
     <Compile Include="LogViewModel.cs" />
+    <Compile Include="NotificationAlertsViewModel.cs" />
+    <Compile Include="NotifyEmailViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusHistoryViewModel.cs" />
     <Compile Include="StatusViewModel.cs" />
+    <Compile Include="UserDataViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

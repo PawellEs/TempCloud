@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TempCloud.ViewModel
 {
-    public class StatusViewModel
+    public class StatusHistoryViewModel
     {
         public int Id { get; set; }
         public int Value { get; set; }
