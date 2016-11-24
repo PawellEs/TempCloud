@@ -13,7 +13,7 @@ namespace TempCloud.DataModel.Models
 
         public bool IsDeleted { get; set; }
 
-        public List<UserDevice> SystemUsers { get; set; }
+        public List<UserDevice> DeviceUsers { get; set; }
 
         public List<NotifyEmail> NotifyEmails { get; set; }
 

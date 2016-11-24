@@ -19,6 +19,7 @@ using TempCloud.WebApi.Results;
 using TempCloud.DataModel.Models;
 using TempCloud.WebApi;
 using TempCloud.Service.Interfaces;
+using TempCloud.ViewModel;
 
 namespace TempCloud.WebApi.Controllers
 {
@@ -34,13 +35,6 @@ namespace TempCloud.WebApi.Controllers
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat, IUserService userService)
         {
             this.service = userService;
-            UserManager = userManager;
-            AccessTokenFormat = accessTokenFormat;
-        }
-
-        public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
-        {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
@@ -169,14 +163,200 @@ namespace TempCloud.WebApi.Controllers
                 return Unauthorized();
             }
 
-            //string userId = HttpContext.Current.User.Identity.GetUserId();
-            //if (string.IsNullOrEmpty(userId))
-            //{
-            //   return NotFound();
-            //}
-
             this.service.DeleteUser(userId);
             return Ok();
+        }
+
+        [Route("GetAllUsers")]
+        public IHttpActionResult GetAllUsers()
+        {
+            var user = HttpContext.Current.User;
+            string userId = user.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId) || (!user.IsInRole("Admin") && !user.IsInRole("Owner")))
+            {
+                return NotFound();
+            }
+
+
+            var result = this.service.GetAllUsers(userId);
+            return Ok(result);
+        }
+
+        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [Route("GetUser")]
+        public IHttpActionResult GetUserData()
+        {
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.GetUser(userId);
+            return Ok(result);
+        }
+
+        //[HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [Route("GetUserById/{userId}")]
+        public IHttpActionResult GetUserById(string userId)
+        {
+            var currentUser = HttpContext.Current.User;
+            if (!currentUser.IsInRole("Admin") && !currentUser.IsInRole("Owner"))
+            {
+                return NotFound();
+            }
+            var result = this.service.GetUser(userId);
+            return Ok(result);
+        }
+
+
+        [Route("GetUsersByQuery/{searchString}")]
+        public IHttpActionResult GetUsersByQuery(string searchString)
+        {
+            if (string.IsNullOrEmpty(searchString))
+            {
+                return Ok();
+            }
+            var user = HttpContext.Current.User;
+            string userId = user.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId) || (!user.IsInRole("Admin") && !user.IsInRole("Owner")))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.GetAllUsers(userId, searchString);
+            return Ok(result);
+        }
+
+        [Route("GetUsersByRole/{role}")]
+        public IHttpActionResult GetUsersByRole(string role)
+        {
+
+            var user = HttpContext.Current.User;
+
+            if (!user.IsInRole("Admin"))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.GetUsersByRole("Owner");
+            return Ok(result);
+        }
+
+
+        [Route("GetUsersByPage/{page}/{itemsNumber}")]
+        public IHttpActionResult GetUsersByPage(int page, int itemsNumber)
+        {
+            var user = HttpContext.Current.User;
+            string userId = user.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId) || (!user.IsInRole("Admin") && !user.IsInRole("Owner")))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.GetUserByPage(userId, page, itemsNumber);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("EditUser")]
+        public IHttpActionResult EditUser(UserDataViewModel model)
+        {
+            var user = HttpContext.Current.User;
+            string userId = user.Identity.GetUserId();
+            if (!user.IsInRole("Admin") && !user.IsInRole("Owner"))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.EditUser(model);
+            return Ok();
+        }
+
+
+        [HttpPost]
+        [Route("EditSettings")]
+        public IHttpActionResult EditSettings(UserDataViewModel model)
+        {
+            var user = HttpContext.Current.User;
+            string userId = user.Identity.GetUserId();
+            model.Id = userId;
+
+            var result = this.service.EditSettings(model);
+            return Ok();
+        }
+
+        [Route("GetNotificationEmails/{systemId}")]
+        public IHttpActionResult GetNotificationEmails(int systemId)
+        {
+            var user = HttpContext.Current.User;
+            if (!user.IsInRole("Admin") && !user.IsInRole("Owner"))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.GetNotifyEmailsByDeviceId(systemId);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("AddOrUpdateNotifyEmail")]
+        public IHttpActionResult AddOrUpdateNotifyEmail(NotifyEmailViewModel model)
+        {
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId))
+            {
+                return NotFound();
+            }
+
+            bool result;
+            if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                result = this.service.AddOrUpdateNotifyEmailByAdmin(model);
+            }
+            else
+            {
+                result = this.service.AddOrUpdateNotifyEmail(model, userId);
+            }
+
+            if (result)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        [Route("DeleteNotification")]
+        public IHttpActionResult DeleteNotification(NotifyEmailViewModel model)
+        {
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId))
+            {
+                return NotFound();
+            }
+
+            bool result;
+            if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                result = this.service.DeleteNotificationByAdmin(model);
+            }
+            else
+            {
+                result = this.service.DeleteNotification(model, userId);
+            }
+
+            if (result)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // POST api/Account/AddExternalLogin
@@ -354,13 +534,30 @@ namespace TempCloud.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, RegistrationDate = DateTime.Now, Active = 1 };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
+            service.AssignDevicesToUser(user.Id, model.AssignedDevices);
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
+            }
+            else
+            {
+
+                if (HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    switch (model.RoleId)
+                    {
+                        case 1:
+                            service.SetRole(user.Id, "Admin");
+                            break;
+                        case 2:
+                            service.SetRole(user.Id, "Owner");
+                            break;
+                    }
+                }
             }
 
             return Ok();

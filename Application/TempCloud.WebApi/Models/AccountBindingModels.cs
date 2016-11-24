@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace TempCloud.WebApi.Models
 {
@@ -48,6 +49,13 @@ namespace TempCloud.WebApi.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public int RoleId { get; set; }
+
+        public List<int> AssignedDevices{ get; set; }
     }
 
     public class RegisterExternalBindingModel

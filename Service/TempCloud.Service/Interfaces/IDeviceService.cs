@@ -15,22 +15,11 @@ namespace TempCloud.Service.Interfaces
        // bool SaveExceptionLog(CrfiExceptionViewModel log);
 
         DeviceViewModel GetDeviceById(int id);
-
-        List<DeviceDetailViewModel> GetDeviceDetails(int deviceId);
-
-        List<LogViewModel> GetDeviceStatuses(int deviceId);
-
-        List<LogViewModel> GetDeviceStatusesByType(int deviceId, int typeId);
-
-        List<LogViewModel> GetDevicesWithStatusTypeAndValue(int typeId, int value);
-
-        List<LogHistoryViewModel> GetDeviceHistoryAll(int deviceId);
-
-        List<LogHistoryViewModel> GetDeviceHistoryByDate(int deviceId, DateTime start, DateTime end);
-
-        List<LogHistoryViewModel> GetDeviceHistoryByType(int deviceId, int typeId);
-
-        List<LogHistoryViewModel> GetDeviceHistoryByDateAndType(int deviceId, DateTime start, DateTime end, int typeId);
-
+        List<DeviceViewModel> GetUserDevice(string userId);
+        List<DeviceStatusViewModel> GetDevicesByType(int typeId, string userId);
+        List<DeviceStatusViewModel> GetDevicesByPage(int page, int itemsNumber);
+        bool AddOrUpdateDevice(string name, int deviceId, int typeId);
+        bool DeleteDevice(int deviceId);
+        List<DeviceViewModel> GetAllDevices();
     }
 }
