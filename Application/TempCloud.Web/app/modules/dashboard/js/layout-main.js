@@ -1,5 +1,7 @@
 // PANELS
-$(document).ready(function(){
+$(document).ready(function () {
+
+    
   // panel close
 $('.panel-close').on('click', function (e) {
     e.preventDefault();

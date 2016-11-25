@@ -55,7 +55,7 @@ $('.counter').each(count);
   });
 
 ////////////////////////////////////////////////////////////////////////////// chart js
-  var chart = new Chartist.Line('#main_chart', {
+  /*var chart = new Chartist.Line*('#main_chart', {
     labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
     series: [
     [12, 11, 10, 9, 8, 10, 8, 10, 8, 12, 10, 12,14],
@@ -170,7 +170,7 @@ $('.counter').each(count);
       data.element.animate(animations);
   }
   });
-
+ 
   // For the sake of the example we update the chart every time it's created with a delay of 10 seconds
   chart.on('created', function() {
     if(window.__exampleAnimateTimeout) {
@@ -252,7 +252,7 @@ $('.counter').each(count);
 defaultChartConfig("#chart1",sine());
 defaultChartConfig("#chart2", volatileChart(130.0, 0.02));
 defaultChartConfig("#chart3", volatileChart(25.0, 0.09,30));
-
+ */
 function sine() {
     var sin = [];
     var now =+new Date();

@@ -286,7 +286,7 @@ html {
 .side-bar .admin-logo {
   background-color: #2196f3;
   min-height: 70px;
-  padding-left: 15px;
+  /*padding-left: 15px;*/
   position: fixed !important;
   /*width: 100%;*/
   width: inherit;
@@ -294,8 +294,8 @@ html {
 }
 .left-bar .admin-logo .logo-holder,
 .side-bar .admin-logo .logo-holder {
-  width: 100px;
-  padding-top: 25px;
+  width: 190px;
+  padding-top: 11px;
 }
 .left-bar .admin-logo .logo-holder .logo,
 .side-bar .admin-logo .logo-holder .logo {

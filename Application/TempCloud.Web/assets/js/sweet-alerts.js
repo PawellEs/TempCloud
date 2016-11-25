@@ -72,7 +72,7 @@ document.querySelector('.icon-sweet-4').onclick = function(){
 document.querySelector('.confirm-sweet-1').onclick = function(){
 	swal({
 		title: "Are you sure?",
-		text: "You will not be able to recover this imaginary file!",
+		text: "",
 		type: "error",
 		showCancelButton: true,
 		confirmButtonClass: 'btn-danger',
@@ -81,7 +81,7 @@ document.querySelector('.confirm-sweet-1').onclick = function(){
           //closeOnCancel: false
       },
       function(){
-      	swal("Deleted!", "Your imaginary file has been deleted!", "success");
+      	swal("Deleted!", "", "success");
       });
 };
 

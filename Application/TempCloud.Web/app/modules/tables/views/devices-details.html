@@ -1,0 +1,47 @@
+<div class="animated fadeInUpBig" ng-controller="devicesDetailsCtrl" >
+    <div class="panel panel-piluku" >
+        <div class="panel-heading"  id="panelTable{{systemId}}">
+            <h3 class="panel-title">
+                {{system.Name}}
+               
+                <span class="panel-options">
+                    <a href="#" class="panel-refresh">
+                        <i class="icon ti-reload"></i>
+                    </a>
+                    <a href="#" class="panel-minimize">
+                        <i class="icon ti-angle-up"></i>
+                    </a>
+
+                </span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped display" id="systemsTable{{systemId}}" >
+                    <thead>
+                        <tr>
+                            
+                            <th>Device</th>
+                            <th>Status</th>
+                            <th>Last Update</th>
+                            <th style="display: none"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd gradeX" data-systemName="{{device.Name}}" ng-repeat="device in farms">
+                            <td>{{device.Name}}</td>
+
+                            <td><button ng-if="device.NoConnection==false" class="btn {{device.StatusValue==0?'btn-danger':'btn-success'}}" type="button">{{device.StatusValue==0?'ERROR':'OK'}} <span class="badge"></span></button>
+                                <button ng-if="device.NoConnection==true" class="btn btn-warning" type="button">NO CONNECTION <span class="badge"></span></button>
+                            </td>
+                            <td class="center"> {{device.LastUpdate.replace("T"," ").substring(0,19)}}</td>
+                            <td class="center" style="display: none;"><button class="btn btn-primary"><span>Details </span><i class="ion ion-ios-eye"></i></button></td>
+                        </tr>
+                       
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

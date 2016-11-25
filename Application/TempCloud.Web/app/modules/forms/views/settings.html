@@ -1,0 +1,81 @@
+<div class="animated fadeInUpBig" ng-controller="settingsCtrl">
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Settings
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i>
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i>
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i>
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+		    <form action="" id="form-a" role="form" class="form form-horizontal">
+                <input name="inline suggestions" type="hidden" id="userIdField" readonly="readonly" value="{{user.Id}}" class="form-control" />
+
+
+
+		        <div class="form-group">
+		            <label class="col-sm-2 control-label" for="firstNameField">First Name:</label>
+		            <div class="col-sm-8">
+		                <input name="inline suggestions" type="text" id="firstNameField" value="{{user.FirstName}}" class="form-control"/>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label class="col-sm-2 control-label" for="lastNameField">Last Name:</label>
+		            <div class="col-sm-8">
+		                <input name="inline suggestions" type="text" id="lastNameField" value="{{user.LastName}}" class="form-control"/>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label class="col-sm-2 control-label">Notification Active:</label>
+		         
+                    <div class="col-sm-8">
+                        <input type="checkbox" ng-checked="user.NotificationActive" name="" value="" id="alertsEnabledField" checked="">
+                        <div class="toggle">
+                            <label for="alertsEnabledField">
+                                <i></i>
+                            </label>
+                        </div>
+                    </div>
+		        </div>
+		        <div class="form-group">
+		            <label class="col-sm-2 control-label">Notification interval (min):</label>
+		            <div class="col-sm-8">
+
+                        <input name="inline suggestions" type="text" id="intervalField" value="{{user.AlertInterval}}" class="form-control" />
+		            </div>
+		        </div>
+
+		        <div class="form-group">
+		            <div class="col-sm-offset-2 col-sm-8">
+
+		                <label for="c1"><span id="editSettingsMessage"></span></label>
+		            </div>
+		        </div>
+
+		        <div class="row">
+		            <div class="col-md-3" align="right">
+		                <input type="submit" class="btn btn-success" id="editSettings" value="Save">
+		            </div>
+
+
+		            <div class="col-md-3">
+		                <input type="submit" class="btn btn-danger" id="cancelButton" value="Cancel">
+		            </div>
+		        </div>
+
+		    </form>
+	
+</div>
+</div>
+<!-- /panel -->
+</div>
