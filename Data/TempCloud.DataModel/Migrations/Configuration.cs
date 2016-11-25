@@ -42,16 +42,15 @@ namespace TempCloud.DataModel.Migrations
             //context.Users.AddOrUpdate(u => u.UserName,
             //    new ApplicationUser
             //    {
-            //        UserName = "admin@admin.com",
+            //        UserName = "owner@owner.com",
             //        PasswordHash = password,
             //        PhoneNumber = "08869879",
-            //        Email = "admin@admin.com",
+            //        Email = "owner@owner.com",
             //        EmailConfirmed = true,
             //        LastLoginDate = DateTime.Now,
             //        RegistrationDate = DateTime.Now,
             //        Active = 1,
             //        SecurityStamp = Guid.NewGuid().ToString("D")
-
             //    });
         }
     }

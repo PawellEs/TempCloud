@@ -1,0 +1,1 @@
+$(".live-tile, .flip-list").not(".exclude").liveTile(),$("#flip2").liveTile({startNow:!1,flipListOnHover:!0,flipListOnHoverEvent:"mouseover"});

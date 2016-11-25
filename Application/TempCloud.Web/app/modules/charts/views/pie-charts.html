@@ -1,0 +1,125 @@
+<div class="animated fadeInUpBig" ng-controller="pieChartsCtrl">
+	<!-- *** Easy Pie Charts *** -->
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Easy Pie Charts
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row text-center">
+				<div class="col-md-3">
+					<span class="easyChart" data-percent="100">
+						<span class="percent"></span>
+					</span>
+				</div>
+				<div class="col-md-3">
+					<span class="easyChart" data-percent="58">
+						<span class="percent"></span>
+					</span>
+				</div>
+				<div class="col-md-3">
+					<span class="easyChartLive" data-percent="65">
+						<span class="percent"></span>
+					</span>
+				</div>
+				<div class="col-md-3">
+					<span class="easyChartCustom" data-percent="75">
+						<span class="percent"></span>
+					</span>
+				</div>
+			</div> <!-- /row -->
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- *** Flot Pie Charts *** -->
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Flot Pie Charts
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="list-group flot-pie-charts">
+						<a  class="list-group-item" href="#"  id="example-1">Default Options</a>
+						<a  class="list-group-item" href="#"  id="example-2">Without Legend</a>
+						<a  class="list-group-item" href="#"  id="example-3">Label Formatter</a>
+						<a  class="list-group-item" href="#"  id="example-4">Label Radius</a>
+						<a  class="list-group-item" href="#"  id="example-5">Label Styles #1</a>
+						<a  class="list-group-item" href="#"  id="example-6">Label Styles #2</a>
+						<a  class="list-group-item" href="#"  id="example-7">Hidden Labels</a>
+						<a  class="list-group-item" href="#"  id="example-8">Combined Slice</a>
+						<a  class="list-group-item" href="#"  id="example-9">Rectangular Pie</a>
+						<a  class="list-group-item" href="#"  id="example-10">Tilted Pie</a>
+						<a  class="list-group-item" href="#"  id="example-11">Donut Hole</a>
+						<a  class="list-group-item" href="#"  id="example-12">Interactivity</a>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<span id="description"></span>
+					<div id="placeholder" class="demo-placeholder"></div>
+				</div>
+			</div><!-- /row -->
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- *** NVD3 Pie Charts *** -->
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				NVD3 Pie Charts
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-6 text-center">
+					<svg id="pieOne"></svg>
+				</div>
+				<div class="col-md-6">
+					<svg id="pieTwo"></svg>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /panel -->
+</div>

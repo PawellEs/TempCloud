@@ -1,0 +1,336 @@
+<div class="animated fadeInUpBig" ng-controller="nestableListsCtrl">
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Nestable Lists
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i>
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i>
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i>
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<menu id="nestable-menu">
+				<button type="button" class="btn btn-green" data-action="expand-all">Expand All</button>
+				<button type="button" class="btn btn-green" data-action="collapse-all">Collapse All</button>
+			</menu>
+			<div class="row">
+				<!-- ***** Nestbale default Part ***** -->
+				<div class="col-md-4">
+					<h4> Nestable Default</h4>
+					<hr>
+					<div class="dd">
+						<ol class="dd-list">
+							<li class="dd-item" data-id="1">
+								<div class="dd-handle success">Item 1</div>
+							</li>
+							<li class="dd-item" data-id="2">
+								<div class="dd-handle info">Item 2</div>
+							</li>
+							<li class="dd-item" data-id="3">
+								<div class="dd-handle danger">Item 3</div>
+								<ol class="dd-list">
+									<li class="dd-item" data-id="4">
+										<div class="dd-handle warning">Item 4</div>
+									</li>
+									<li class="dd-item" data-id="5">
+										<div class="dd-handle">Item 5</div>
+									</li>
+								</ol>
+							</li>
+							<li class="dd-item" data-id="6">
+								<div class="dd-handle">Item 6</div>
+								<ol class="dd-list">
+									<li class="dd-item" data-id="7">
+										<div class="dd-handle">Item 7</div>
+									</li>
+									<li class="dd-item" data-id="8">
+										<div class="dd-handle warning">Item 8</div>
+										<ol class="dd-list">
+											<li class="dd-item" data-id="9">
+												<div class="dd-handle">Item 9</div>
+											</li>
+											<li class="dd-item" data-id="10">
+												<div class="dd-handle info">Item 10</div>
+											</li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+				</div>
+
+				<!-- ***** Drag to this list Part ***** -->
+				<div class="col-md-4">
+					<h4> Drag to this list</h4>
+					<hr>
+					<div class="dd" id="nestable2">
+						<ol class="dd-list">
+							<li class="dd-item" data-id="13">
+								<div class="dd-handle success">Item 13</div>
+							</li>
+							<li class="dd-item" data-id="14">
+								<div class="dd-handle">Item 14</div>
+							</li>
+							<li class="dd-item" data-id="15">
+								<div class="dd-handle danger">Item 15</div>
+								<ol class="dd-list">
+									<li class="dd-item" data-id="16"><div class="dd-handle">Item 16</div></li>
+									<li class="dd-item" data-id="17"><div class="dd-handle">Item 17</div></li>
+									<li class="dd-item" data-id="18"><div class="dd-handle">Item 18</div></li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+				</div>
+
+				<!-- ***** Draggable Handlers Part ***** -->
+				<div class="col-md-4">
+					<h4>Draggable Handlers</h4>
+					<hr>
+					<div class="dd" id="nestable3">
+						<ol class="dd-list">
+							<li class="dd-item dd3-item" data-id="13">
+								<div class="dd-handle drag-info dd3-handle">Drag</div><div class="dd3-content">Item 13</div>
+							</li>
+							<li class="dd-item dd3-item" data-id="14">
+								<div class="dd-handle drag-warning dd3-handle">Drag</div><div class="dd3-content">Item 14</div>
+							</li>
+							<li class="dd-item dd3-item" data-id="15">
+								<div class="dd-handle drag-danger dd3-handle">Drag</div><div class="dd3-content">Item 15</div>
+								<ol class="dd-list">
+									<li class="dd-item dd3-item" data-id="16">
+										<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 16</div>
+									</li>
+									<li class="dd-item dd3-item" data-id="17">
+										<div class="dd-handle drag-success dd3-handle">Drag</div><div class="dd3-content">Item 17</div>
+									</li>
+									<li class="dd-item dd3-item" data-id="18">
+										<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 18</div>
+									</li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- *** Drag and Drop list items *** -->
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Drag &amp; Drop List Items
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<div class="col-md-6">
+				<div data-force="30" class="layer">
+					<div class="layer list_title">List A</div>
+					<ul id="foo" class="block__list block__list_words">
+						<li>бегемот</li>
+						<li>корм</li>
+						<li>антон</li>
+						<li>сало</li>
+						<li>железосталь</li>
+						<li>валик</li>
+						<li>кровать</li>
+						<li>краб</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div data-force="18" class="layer block">
+					<div class="layer list_title">List B</div>
+					<ul id="bar" class="block__list block__list_tags">
+						<li>казнить</li>
+						<li>,</li>
+						<li>нельзя</li>
+						<li>помиловать</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- *** Drag and Drop list items *** -->
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Multi Groups Drag &amp; Drop List Items
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<div id="multi">
+				<div class="col-md-4">
+					<div class="layer tile" data-force="30">
+						<div class="tile__name">Group A</div>
+						<div class="tile__list">
+                            <img src="assets/images/avatar/eight.png"/>
+                            <img src="assets/images/avatar/one.png"/>
+                            <img src="assets/images/avatar/four.png"/>
+							<img src="assets/images/avatar/six.png"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="layer tile" data-force="25">
+						<div class="tile__name">Group B</div>
+						<div class="tile__list">
+                            <img src="assets/images/avatar/two.png"/>
+                            <img src="assets/images/avatar/seven.png"/>
+                            <img src="assets/images/avatar/five.png"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="layer tile" data-force="20">
+						<div class="tile__name">Group C</div>
+						<div class="tile__list">
+                            <img src="assets/images/avatar/three.png"/>
+                            <img src="assets/images/avatar/nine.png"/>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- panel -->
+<div class="panel panel-piluku">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Editable List
+			<span class="panel-options">
+				<a href="#" class="panel-refresh">
+					<i class="icon ti-reload"></i> 
+				</a>
+				<a href="#" class="panel-minimize">
+					<i class="icon ti-angle-up"></i> 
+				</a>
+				<a href="#" class="panel-close">
+					<i class="icon ti-close"></i> 
+				</a>
+			</span>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<div id="filter">
+			<div data-force="5" class="layer list_title">Editable and Drag Handle Lists</div>
+
+				<div class="block__list block__list_words">
+					<ul id="editable">
+						<li>Оля<i class="js-remove icon ti-close"></i></li>
+						<li>Владимир<i class="js-remove icon ti-close"></i></li>
+						<li>Алина<i class="js-remove icon ti-close"></i></li>
+					</ul>
+
+					<button id="addUser">Add</button>
+				</div>
+			</div>
+		</div>
+</div>
+<!-- /panel -->
+
+<!-- panel -->
+<div class="panel panel-piluku">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Advanced Groups
+			<span class="panel-options">
+				<a href="#" class="panel-refresh">
+					<i class="icon ti-reload"></i> 
+				</a>
+				<a href="#" class="panel-minimize">
+					<i class="icon ti-angle-up"></i> 
+				</a>
+				<a href="#" class="panel-close">
+					<i class="icon ti-close"></i> 
+				</a>
+			</span>
+		</h3>
+	</div>
+	<div class="panel-body">
+
+		<div id="advanced" style="margin-left: 30px;">
+			<div class="col-md-4">
+				<div class="block__list block__list_words">
+					<div class="block__list-title">pull &amp; put</div>
+					<ul id="advanced-1">
+						<li>Meat</li>
+						<li>Potato</li>
+						<li>Tea</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="block__list block__list_words">
+					<div class="block__list-title">only pull (clone) no&nbsp;reordering</div>
+					<ul id="advanced-2">
+						<li>Sex</li>
+						<li>Drugs</li>
+						<li>Rock'n'roll</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="block__list block__list_words">
+					<div class="block__list-title">only put</div>
+					<ul id="advanced-3">
+						<li>Money</li>
+						<li>Force</li>
+						<li>Agility</li>
+					</ul>
+				</div>
+			</div>
+
+			<div style="clear: both"></div>
+		</div>
+
+	</div>
+</div>
+<!-- /panel -->
+</div>

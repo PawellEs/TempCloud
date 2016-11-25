@@ -1,0 +1,896 @@
+<div class="animated fadeInUpBig" ng-controller="formElementsCtrl">
+	<!--theme panel-->
+    <div class="panel">
+        <div class="panel-body">
+            <!--form-heading-->
+            <div class="form-heading">
+                horizontal form
+            </div>
+            <!--form-heading-->
+            <form action="" class="form form-horizontal">
+                <!--Default Horizontal Form-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Name:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                </div>
+                <!--Default Horizontal Form-->
+
+                <!--Default Horizontal Form with password-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">password:</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                </div>
+                <!--Default Horizontal Form with password-->
+
+                <!--disabled-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Disabled:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Disabled Form" disabled>
+                    </div>
+                </div>
+                <!--disabled-->
+
+                <!--                            input group-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">input group:</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <span class="input-group-addon bg">
+                                <i class="ion-plus"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Text Input">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                </div>
+                <!--                            input group-->
+
+                <!--                            input group-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">input group disabled:</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <span class="input-group-addon bg">
+                                <i class="ion-plus"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Text Input" disabled>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                </div>
+                <!--                            input group-->
+
+                <!--                            selectize form   -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Select:</label>
+                    <div class="col-sm-8">
+                        <select class="name_search form-control">
+                            <option value="1"> option 1 </option>
+                            <option value="2"> option 2 </option>
+                            <option value="3"> option 3 </option>
+                            <option value="4"> option 4 </option>
+                            <option value="5"> option 5 </option>
+                            <option value="6"> option 6 </option>
+                            <option value="7"> option 7 </option>
+                        </select>
+                    </div>
+                </div>
+                <!--                            select form   -->
+
+                <!--                            select form with input group   -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Select with input group lakshman:</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <span class="input-group-addon bg">
+							<i class="ion-plus"></i>
+						</span>
+                            <select class="name_search form-control">
+                                <option value="1"> option 1 </option>
+                                <option value="2"> option 2 </option>
+                                <option value="3"> option 3 </option>
+                                <option value="4"> option 4 </option>
+                                <option value="5"> option 5 </option>
+                                <option value="6"> option 6 </option>
+                                <option value="7"> option 7 </option>
+                            </select>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                </div>
+                <!--                            select form with input group   -->
+
+                <!--                            address form-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Address :</label>
+                    <div class="col-sm-8">
+                        <textarea name="" class="form-control text-area" cols="30" rows="10" placeholder="Address Form"></textarea>
+                    </div>
+                </div>
+                <!--                            address form-->
+
+                <!--                            success-->
+                <div class="form-group has-success">
+                    <label class="col-sm-2 control-label">Success:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Success input">
+                    </div>
+                </div>
+                <!--                            success-->
+
+                <!--                            error-->
+                <div class="form-group has-error">
+                    <label class="col-sm-2 control-label">error:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Error input">
+                    </div>
+                </div>
+                <!--                            error-->
+
+                <!--                            file upload-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">File Upload:</label>
+                    <div class="col-sm-8">
+                        <input type="file" class="filestyle" data-icon="false">
+                    </div>
+                </div>
+                <!--                            file upload-->
+
+                <!--                            check box-->
+                <div class="form-group check-radio">
+                    <label class="col-sm-2 control-label">Check Boxes:</label>
+                    <div class="col-sm-8">
+                        <ul class="list-inline checkboxes-radio">
+                            <li>
+                                <input type="checkbox" id="c1" />
+                                <label for="c1"><span></span>Unchecked</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="c2" checked/>
+                                <label for="c2"><span></span>Checked</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="c3" disabled />
+                                <label for="c3"><span></span>Disabled</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="c4" checked disabled />
+                                <label for="c4"><span></span>Check Disabled</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--                            check box-->
+
+                <!--                            radio buttons-->
+                <div class="form-group check-radio">
+                    <label class="col-sm-2 control-label">Radio Buttons:</label>
+                    <div class="col-sm-8">
+                        <ul class="list-inline checkboxes-radio">
+                            <li>
+                                <input type="radio" name="active" id="c5" />
+                                <label for="c5"><span></span>Unselected</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="active" id="c7" checked />
+                                <label for="c7"><span></span>Selected</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="disabled" id="c8" disabled />
+                                <label for="c8"><span></span>Disabled</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="disabled" id="c9" checked disabled/>
+                                <label for="c9"><span></span>Uncheck Disabled</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--                            radio buttons-->
+
+                <!--                            Toggle Switch-->
+                <div class="form-group">
+                    <div class="toggle-switch">
+                        <label class="col-sm-2 control-label">Toggle Switch:</label>
+                        <div class="col-sm-8">
+                            <input type="checkbox" id="toggle-switch" name="" value="" checked>
+                            <div class="toggle">
+                                <label for="toggle-switch"><i></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            Toggle Switch-->
+
+                <!--                            Toggle Switch-->
+                <div class="form-group">
+                    <div class="toggle-switch">
+                        <label class="col-sm-2 control-label">Toggle Switch Disabled:</label>
+                        <div class="col-sm-8">
+                            <input type="checkbox" id="toggle-disable" name="" value="" checked disabled>
+                            <div class="toggle">
+                                <label for="toggle-disable"><i></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            Toggle Switch-->
+            </form>
+        </div>
+    </div>
+    <!--theme panel-->
+
+
+    <!--theme panel-->
+    <div class="panel">
+        <div class="panel-body">
+            <!--form-heading-->
+            <div class="form-heading">
+                Default form
+            </div>
+
+            <!--form-heading-->
+            <form action="" class="form">
+                <div class="col-md-6">
+                    <!--Default Form-->
+                    <div class="form-group">
+                        <label class="control-label">Name:</label>
+                        <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <!--Default Form-->
+                    <!--Default Form with password-->
+                    <div class="form-group">
+                        <label class="control-label">password:</label>
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <!--Default Form with password-->
+
+                    <!--disabled-->
+                    <div class="form-group">
+                        <label class="control-label">Disabled:</label>
+                        <input type="text" class="form-control" placeholder="Disabled Form" disabled>
+                    </div>
+                    <!--disabled-->
+
+                    <!--                            input group-->
+                    <div class="form-group">
+                        <label class="control-label">input group:</label>
+                        <div class="input-group">
+                            <span class="input-group-addon bg">
+                               <i class="ion-plus"></i>
+                           </span>
+                            <input type="text" class="form-control" placeholder="Text Input">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!--                            input group-->
+
+                    <!--                            input group-->
+                    <div class="form-group">
+                        <label class="control-label">input group disabled:</label>
+                        <div class="input-group">
+                            <span class="input-group-addon bg">
+                               <i class="ion-plus"></i>
+                           </span>
+                            <input type="text" class="form-control" placeholder="Text Input" disabled>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!--                            input group-->
+
+                    <!--                            selectize form   -->
+                    <div class="form-group">
+                        <label class="control-label">Select:</label>
+                        <select class="name_search form-control">
+                            <option value="1"> option 1 </option>
+                            <option value="2"> option 2 </option>
+                            <option value="3"> option 3 </option>
+                            <option value="4"> option 4 </option>
+                            <option value="5"> option 5 </option>
+                            <option value="6"> option 6 </option>
+                            <option value="7"> option 7 </option>
+                        </select>
+                    </div>
+                    <!--                            select form   -->
+
+                    <!--                            select form with input group   -->
+                    <div class="form-group">
+                        <label class="control-label">Select with input group:</label>
+                        <div class="input-group">
+                            <span class="input-group-addon bg">
+                               <i class="ion-plus"></i>
+                           </span>
+                            <select class="name_search form-control">
+                                <option value="1"> option 1 </option>
+                                <option value="2"> option 2 </option>
+                                <option value="3"> option 3 </option>
+                                <option value="4"> option 4 </option>
+                                <option value="5"> option 5 </option>
+                                <option value="6"> option 6 </option>
+                                <option value="7"> option 7 </option>
+                            </select>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!--                            select form with input group   -->
+                </div>
+
+                <div class="col-md-6">
+                    <!--                            success-->
+                    <div class="form-group has-success">
+                        <label class="control-label">Success:</label>
+                        <input type="text" class="form-control" placeholder="Success input">
+                    </div>
+                    <!--                            success-->
+
+                    <!--                            error-->
+                    <div class="form-group has-error">
+                        <label class="control-label">error:</label>
+                        <input type="text" class="form-control" placeholder="Error input">
+                    </div>
+                    <!--                            error-->
+
+                    <!--                            file upload-->
+                    <div class="form-group">
+                        <label class="control-label">File Upload:</label>
+                        <input type="file" class="filestyle" data-icon="false">
+                    </div>
+                    <!--                            file upload-->
+
+                    <!--                            address form-->
+                    <div class="form-group">
+                        <label class="control-label">Address :</label>
+                        <textarea name="" class="form-control text-area" cols="30" rows="10" placeholder="Address Form"></textarea>
+                    </div>
+                    <!--                            address form-->
+
+                    <!--                            check box-->
+                    <div class="form-group check-radio">
+                        <label class="control-label">Check Boxes:</label>
+                        <ul class="list-inline checkboxes-radio">
+                            <li>
+                                <input type="checkbox" id="c1" />
+                                <label for="c1"><span></span>Unchecked</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="c2" checked/>
+                                <label for="c2"><span></span>Checked</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="c3" disabled />
+                                <label for="c3"><span></span>Disabled</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="c4" checked disabled />
+                                <label for="c4"><span></span>Check Disabled</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--                            check box-->
+
+                    <!--                            radio buttons-->
+                    <div class="form-group check-radio">
+                        <label class="control-label">Radio Buttons:</label>
+                        <ul class="list-inline checkboxes-radio">
+                            <li>
+                                <input type="radio" name="active" id="c5" />
+                                <label for="c5"><span></span>Unselected</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="active" id="c7" checked />
+                                <label for="c7"><span></span>Selected</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="disabled" id="c8" disabled />
+                                <label for="c8"><span></span>Disabled</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="disabled" id="c9" checked disabled/>
+                                <label for="c9"><span></span>Uncheck Disabled</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--                            radio buttons-->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!--                            Toggle Switch-->
+                            <div class="form-group">
+                                <div class="toggle-switch">
+                                    <label class="control-label">Toggle Switch:</label>
+                                    <input type="checkbox" id="toggle-switch1" name="" value="" checked>
+                                    <div class="toggle">
+                                        <label for="toggle-switch1"><i></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--                            Toggle Switch-->
+                        </div>
+
+                        <div class="col-md-4">
+                            <!--                            Toggle Switch-->
+                            <div class="form-group">
+                                <div class="toggle-switch">
+                                    <label class="control-label">Toggle Switch Disabled:</label>
+                                    <input type="checkbox" id="toggle-disable1" name="" value="" checked disabled>
+                                    <div class="toggle">
+                                        <label for="toggle-disable1"><i></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--                            Toggle Switch-->
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!--theme panel-->
+
+
+    <!--theme panel-->
+    <div class="panel">
+        <div class="panel-body">
+            <!--form-heading-->
+            <div class="form-heading">
+                Select2 and Multi Select
+            </div>
+            <!--form-heading-->
+            <div class="col-md-6">
+                <!--                            selectize form   -->
+                <div class="form-group">
+                    <label class="control-label">Select:</label>
+                    <select class="name_search form-control">
+                        <option value="1"> option 1 </option>
+                        <option value="2"> option 2 </option>
+                        <option value="3"> option 3 </option>
+                        <option value="4"> option 4 </option>
+                        <option value="5"> option 5 </option>
+                        <option value="6"> option 6 </option>
+                        <option value="7"> option 7 </option>
+                    </select>
+                </div>
+                <!--                            select form   -->
+
+                <!--                            select form with input group   -->
+                <div class="form-group">
+                    <label class="control-label">Select with input group:</label>
+                    <div class="input-group">
+                        <span class="input-group-addon bg">
+                                <i class="ion-plus"></i>
+                            </span>
+                        <select class="name_search form-control">
+                            <option value="1"> option 1 </option>
+                            <option value="2"> option 2 </option>
+                            <option value="3"> option 3 </option>
+                            <option value="4"> option 4 </option>
+                            <option value="5"> option 5 </option>
+                            <option value="6"> option 6 </option>
+                            <option value="7"> option 7 </option>
+                        </select>
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!--                            select form with input group   -->
+
+                <!--                            selectize form multiple  -->
+                <div class="form-group">
+                    <label class="control-label">Select Multiple:</label>
+                    <select class="multi form-control" multiple>
+                        <option value="1"> option 1 </option>
+                        <option value="2"> option 2 </option>
+                        <option value="3"> option 3 </option>
+                        <option value="4"> option 4 </option>
+                        <option value="5"> option 5 </option>
+                        <option value="6"> option 6 </option>
+                        <option value="7"> option 7 </option>
+                    </select>
+                </div>
+                <!--                            select form multiple  -->
+
+                <!--                            selectize form 2 keywords  -->
+                <div class="form-group">
+                    <label class="control-label">Select (Atleast 2 keywords):</label>
+                    <select class="mintwo form-control">
+                        <option value="1"> option 1 </option>
+                        <option value="2"> option 2 </option>
+                        <option value="3"> option 3 </option>
+                        <option value="4"> option 4 </option>
+                        <option value="5"> option 5 </option>
+                        <option value="6"> option 6 </option>
+                        <option value="7"> option 7 </option>
+                    </select>
+                </div>
+                <!--                            select form 2 keywords  -->
+
+                <!--                            selectize form multiple  -->
+                <div class="form-group">
+                    <label class="control-label">Select Multiple (Maximum 3 Items are allowed):</label>
+                    <select class="maxallowed form-control" multiple>
+                        <option value="0"> option 1 </option>
+                        <option value="1"> option 2 </option>
+                        <option value="2"> option 3 </option>
+                        <option value="3"> option 4 </option>
+                        <option value="4"> option 5 </option>
+                        <option value="5"> option 6 </option>
+                        <option value="6"> option 7 </option>
+                    </select>
+                </div>
+                <!--                            select form multiple  -->
+            </div>
+
+
+            <div class="col-md-6">
+                <!--                            multi select  -->
+                <p class="control-label">Multi Select:</p>
+                <select id='pre-selected-options' multiple='multiple'>
+                    <option value='option_1' selected>option 1</option>
+                    <option value='option_2'>option 2</option>
+                    <option value='option_3'>option 3</option>
+                    <option value='option_4' selected>option 4</option>
+                    <option value='option_5'>option 5</option>
+                    <option value='option_6'>option 6</option>
+                    <option value='option_7'>option 7</option>
+                    <option value='option_8'>option 8</option>
+                </select>
+                <!--                            multi select  -->
+
+            </div>
+        </div>
+    </div>
+    <!--theme panel-->
+
+    <!--theme panel-->
+    <div class="panel">
+        <div class="panel-body">
+            <!--form-heading-->
+            <div class="form-heading">
+                Date Picker
+            </div>
+            <!--form-heading-->
+            <div class="col-md-6">
+                <!--                            default date picker  -->
+                <div class="picker">
+                    <div class="col-md-5">
+                        <p class="control-label align-rt">Default Date Picker</p>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="datepicker"   value="02-16-2012" ></div>
+                    </div>
+                </div>
+                <!--                            default date picker  -->
+
+                <!--                            date picker popup  -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label class="control-label align-rt">Date Picker Popup</label>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" type="text" class="form-control" id="date-popup" data-provide="datepicker"  value="02-16-2012" >
+
+                        </div>
+                    </div>
+                </div>
+                <!--                            date picker popup  -->
+
+                <!--                            date picker popup With Input group  -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label class="control-label align-rt">Date Picker Popup With Input group</label>
+                        </div>
+                        <div class="col-md-7" id="date-popup-group">
+                            <div class="input-group date">
+                                <input type="text" class="form-control" data-provide="datepicker">
+                                <span class="input-group-addon bg">
+                                   <i class="ion ion-ios-calendar-outline"></i>
+                               </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            date picker popup With Input group  -->
+
+                <!--                            date picker popup With Start and End  -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label class="control-label align-rt">Date Picker Popup With Start and End Date</label>
+                        </div>
+                        <div class="col-md-7" id="date-popup-startend">
+                            <div class="input-group date">
+                                <input type="text" class="form-control">
+                                <span class="input-group-addon bg">
+                                    <i class="ion ion-ios-calendar-outline"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            date picker popup With Start and End  -->
+
+                <!--                            date picker popup With disabled  -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label class="control-label align-rt">Date Picker Popup With disabled</label>
+                        </div>
+                        <div class="col-md-7" id="date-disabled">
+                            <div class="input-group date">
+                                <input type="text" class="form-control">
+                                <span class="input-group-addon bg">
+                                    <i class="ion ion-ios-calendar-outline"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            date picker popup With disabled  -->
+            </div>
+
+            <div class="col-md-6">
+                <!--                            date range  -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Date range</label>
+                        </div>
+                        <div class="col-md-9" id="date-range">
+                            <div class="input-group input-daterange" id="datepicker">
+                                <input type="text" class="form-control" name="start">
+                                <span class="input-group-addon bg">
+                                to
+                            </span>
+                                <input type="text" class="form-control" name="end">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            date range  -->
+
+                <!--                            date range disable -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Date range disabled</label>
+                        </div>
+                        <div class="col-md-9" id="date-range-disable">
+                            <div class="input-group input-daterange" id="datepicker">
+                                <input type="text" class="form-control" name="start">
+                                <span class="input-group-addon bg">
+                                    to
+                                </span>
+                                <input type="text" class="form-control" name="end">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            date range disable -->
+            </div>
+        </div>
+    </div>
+    <!--theme panel-->
+    
+    <!--theme panel-->
+    <div class="panel">
+        <div class="panel-body">
+            <!--form-heading-->
+            <div class="form-heading">
+                Color Picker
+            </div>
+            <!--form-heading-->
+
+            <div class="col-md-6">
+                <!--                            Color Picker -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Color Picker</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="color-default form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--                            Color Picker -->
+                
+                <!--                            Color Picker at Addon -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Color Picker at Addon</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group inputgrp">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon bg"><i class="color-picker-addon"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            Color Picker at Addon -->
+                
+                <!--                            Color Picker Horizontal -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Color Picker Horizontal</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="color-default form-control" data-horizontal="true">
+                        </div>
+                    </div>
+                </div>
+                <!--                            Color Picker Horizontal-->
+                
+                <!--                            Color Picker RGBA -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Color Picker RGBA</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="color-rgb">
+                        </div>
+                    </div>
+                </div>
+                <!--                            Color Picker RGBA -->
+            </div>
+        </div>
+    </div>
+    <!--theme panel-->
+    
+    <!--theme panel-->
+    <div class="panel">
+        <div class="panel-body">
+            <!--form-heading-->
+            <div class="form-heading">
+                Form Input Masks
+            </div>
+            <!--form-heading-->
+
+            <div class="col-md-6">
+                <!--                            Date -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Date</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group date-block">
+                                <input type="text" class="form-control" id="date">
+                                <span class="help-block">Date format: mm/dd/yyy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            Date -->
+                
+                <!--                            phone -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Phone</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group date-block">
+                                <input type="text" class="form-control" id="phone">
+                                <span class="help-block">Phone format: (999) 999-9999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            phone -->
+                
+                <!--                            phoneext -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Phone + Ext</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group date-block">
+                                <input type="text" class="form-control" id="phoneext">
+                                <span class="help-block">Phone + Ent: (999) 999-9999? x99999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            phoneext -->
+                
+                <!--                            tin -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Tin</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group date-block">
+                                <input type="text" class="form-control" id="tin">
+                                <span class="help-block">Tin format: 99-9999999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            tin -->
+            </div>
+            
+            <div class="col-md-6">   
+                <!--                            ssn -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">SSN</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group date-block">
+                                <input type="text" class="form-control" id="ssn">
+                                <span class="help-block">SSN format: 999-99-9999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            ssn -->
+                
+                <!--                            Percent -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Percent</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group date-block">
+                                <input type="text" class="form-control" id="percent">
+                                <span class="help-block">Percent format: 99%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            Percent -->
+                
+                <!--                            currency -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Currency</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group date-block">
+                                <input type="text" class="form-control" id="currency">
+                                <span class="help-block">Currency format: $999,999,999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            currency -->
+                
+                <!--                            productkey -->
+                <div class="picker">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="control-label align-rt">Product Key</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group date-block">
+                                <input type="text" class="form-control" id="productkey">
+                                <span class="help-block">Product Key format: a*-999-a999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                            productkey -->
+            </div>
+        </div>
+    </div>
+    <!--theme panel-->
+</div>

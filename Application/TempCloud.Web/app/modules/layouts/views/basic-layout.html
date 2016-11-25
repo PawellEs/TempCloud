@@ -1,0 +1,20 @@
+
+<!--Load Left Sidebar -->
+<ng-include src="'app/shared/leftSideBar.html'" onload="" autoscroll=""></ng-include>
+
+<!-- content holder for Top Navbar and Main content -->
+<div class="content" id="content">      
+  
+  <!-- Load Top Navbar  -->
+  <ng-include src="'app/shared/topNavBar.html'" onload="" autoscroll=""></ng-include>
+
+  <!-- Main Loaded here -->
+  <div class="main-content">
+    <ui-view></ui-view>
+  </div>  
+
+  <!-- Load Top Navbar  -->
+  <ng-include src="'app/shared/rightSideBar.html'" onload="" autoscroll=""></ng-include>
+	
+</div>
+<!-- /Content Holder -->

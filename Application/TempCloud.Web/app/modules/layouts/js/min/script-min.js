@@ -1,0 +1,1 @@
+var nice=$(".left-bar").niceScroll();$(".menu-bar").click(function(){$(".wrapper").toggleClass("mini-bar"),$(".left-bar").getNiceScroll().remove(),setTimeout(function(){$(".left-bar").niceScroll()},200)});

@@ -88,7 +88,7 @@ namespace TempCloud.WebApi
         private void ConfigureOAuthTokenConsumption(IAppBuilder app)
         {
 
-            var issuer = $"http://{System.Web.HttpContext.Current.Request.Url.Host}:{System.Web.HttpContext.Current.Request.Url.Port}"; //"http://localhost:59822";
+            var issuer = $"http://{System.Web.HttpContext.Current.Request.Url.Host}:{System.Web.HttpContext.Current.Request.Url.Port}"; //"http://localhost:53662";
             string audienceId = ConfigurationManager.AppSettings["AudienceId"];
             byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["AudienceSecret"]);
 

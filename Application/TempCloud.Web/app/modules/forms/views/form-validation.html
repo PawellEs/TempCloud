@@ -1,0 +1,339 @@
+<div class="animated fadeInUpBig" ng-controller="formValidationCtrl">
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Form Validation
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i>
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i>
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i>
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<form action="" id="form-a" role="form" class="form form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="inline-suggestions">Inline suggestions:</label>
+					<div class="col-sm-8">
+						<input name="inline suggestions" type="text" id="inline-suggestions" class="form-control" data-suggestions="Monkey, Horse, Hound, Fox, Tiger, Elephant, Alligator, Ant, Bat, Banana, Cat, Cell Phone, Dog, Deer, Goat, George, India,Ireland, Jug, Jackle, Kite, King, Leapord, Lion, Moon,Mentor, Night, Notes, Oxford, Parrot, Queen, Rat, Square, Tiger, Umbrella, Van, Watch, Xenon, Zebra" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="country-suggestions">Country suggestions:</label>
+					<div class="col-sm-8">
+						<input name="country suggestions" data-validation="country" type="text" id="country-suggestions" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="country-suggestions">Swedish county suggestions:</label>
+					<div class="col-sm-8">
+						<input name="Swedish county suggestion" data-validation="swecounty" type="text" id="swedish-county-suggestions" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Year:</label>
+					<div class="col-sm-8">
+						<input name="birth" class="form-control" data-validation="date"	data-validation-format="yyyy/mm/dd"	data-suggestions="2014/01/15,2014/01/16,2014/01/17" />
+					</div>
+					<span class="help-block">yyyy/mm/dd</span>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Datepicker:</label>
+					<div class="col-sm-8">
+						<input name="birth2" class="form-control"
+						data-validation="date"
+						data-validation-format="mm/dd/yyyy"
+						id="datepicker" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Number 0-10 :</label>
+					<div class="col-sm-8">
+						<input name="floats" class="form-control"
+						data-validation="number"
+						data-validation-allowing="range[0;10], float"
+						data-validation-decimal-separator=","
+						/>
+					</div>
+					<span class="help-block">(accepting floats with comma)</span>
+				</div>
+
+				<div class="form-group password-strength">
+					<label class="col-sm-2 control-label" for="password">Password Strength:</label>
+					<div class="col-sm-8">
+						<input name="password" type="password" id="password" class="form-control" data-validation="strength" data-validation-strength="3" />
+					</div>
+					<span class="help-block">(only strong)</span>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Alphanumeric and -_ and spaces</label>
+					<div class="col-sm-8">
+						<input name="alphanumeric with spaces" class="form-control" name="test" data-validation="alphanumeric" data-validation-allowing="-_ " />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Alphanumeric only</label>
+					<div class="col-sm-8">
+						<input name="aplhanumeric only" class="form-control" name="test2" data-validation="alphanumeric" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-8">
+						<input name="checkbox" id="c1" class="form-control" type="checkbox" data-validation="required" />
+						<label for="c1"><span></span>Must be checked</label>
+					</div>	 
+				</div>
+
+				<div class="form-group check-radio">
+					<label class="col-sm-2 control-label">Must choose one:</label>
+					<div class="col-sm-8">
+						<ul class="list-inline checkboxes-radio">
+							<li class="ms-hover">
+								<input name="radio" type="radio" data-validation="required" value="1" id="c5" />
+								<label for="c5"><span></span>Success</label>
+							</li>
+							<li class="ms-hover">
+								<input name="radio" type="radio" value="1" id="c7" />
+								<label for="c7"><span></span>Danger</label>
+							</li>
+							<li>
+								<input name="radio" type="radio" value="1" id="c8"/>
+								<label for="c8"><span></span>Warning</label>
+							</li>
+							<li>
+								<input name="radio" type="radio" value="1" id="c9"/>
+								<label for="c9"><span></span>Info</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Even numbers only</label>
+					<div class="col-sm-8">
+						<input name="even numbers" class="form-control" name="test4" data-validation="even_number" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Make a choice:</label>
+					<div class="col-sm-8">
+						<select class="name_search form-control" name="choice" data-validation="required" data-validation-error-msg="Please make a choice">
+							<option value=""> - - Choose - - </option>
+							<option> option 1 </option>
+							<option> option 2 </option>
+							<option> option 3 </option>
+							<option> option 4 </option>
+							<option> option 5 </option>
+							<option> option 6 </option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Text :</label>
+					<div class="col-sm-8">
+						<textarea id="text-area" name="some-text" class="form-control text-area" cols="30" rows="10" placeholder="Address Form"></textarea>
+					</div>
+					<span class="help-block">(<span id="max-len">20</span> chars left)</span>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Server validation:</label>
+					<div class="col-sm-8">
+						<input class="form-control" name="code" value="secret"
+						data-validation-helssp="The word is &quot;secret&quot;"
+						data-validation="server"
+						data-validation-url="http://formvalidator.net/validate-email.php" />
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">File Validation:</label>
+					<div class="col-sm-8">
+						<input type="file" class="filestyle" data-icon="false" name="some-file1" data-validation="size mime required"
+						data-validation-error-msg-size="The file cant be larger than 400kb"
+						data-validation-error-msg="You must upload an image file (max 400 kb)"
+						data-validation-allowing="jpg, png, ico"
+						data-validation-max-size="400kb" >
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">File Name:</label>
+					<div class="col-sm-8">
+						<input type="text" name="some-file2" class="form-control"
+						data-validation="extension required"
+						data-validation-error-msg="You must write a file name with extension jpg|png|ico"
+						data-validation-allowing="jpg, png, ico"
+						/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">
+						Callback validation, set this value to &quot;1&quot; and
+						validation will fail
+					</label>
+					<div class="col-sm-8">
+						<input id="callback" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group check-boxes">
+					<label class="col-sm-2 control-label">Check Group:</label>
+					<div class="col-sm-8">
+						<ul class="list-inline checkboxes-radio">
+							<li>
+								<input type="checkbox" id="c11"  name="box" value="1"
+								data-validation="checkbox_group"
+								data-validation-qty="1-2" />
+								<label for="c11"><span></span>1</label>
+							</li>
+							<li>
+								<input type="checkbox" id="c12"  name="box" value="2" />
+								<label for="c12"><span></span>2</label>
+							</li>
+							<li>
+								<input type="checkbox" id="c13"  name="box" value="3" />
+								<label for="c13"><span></span>3</label>
+							</li>
+							<li>
+								<input type="checkbox" id="c14"  name="box" value="4" />
+								<label for="c14"><span></span>4</label>
+							</li>
+							<li>
+								<input type="checkbox" id="c15"  name="box" value="5" />
+								<label for="c15"><span></span>5</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3" align="right">
+						<input type="submit" class="btn btn-success">
+					</div>
+					<div class="col-md-3" align="right">
+						<button class="btn btn-lg btn-info" type="button"
+						onclick="alert('Form a is ' + ( $('#form-a').isValid({}, {}, false) ? 'VALID':'NOT VALID'));">
+						Test validation via js <br> (<strong>without error messages</strong>)
+					</button>
+				</div>
+				<div class="col-md-3">
+					<button class="btn btn-lg btn-warning" type="button"
+					onclick="alert('Form a is ' + ( $('#form-a').isValid() ? 'VALID':'NOT VALID'));">
+					Test validation via js <br> (showing error messages)
+				</button>
+			</div>
+			<div class="col-md-3">
+				<input type="reset" class="btn btn-danger">
+			</div>
+		</div>
+		
+	</form>
+	<hr />
+	<h4>Password Validation Form</h4>
+	<form id="form-b" class="form form-horizontal">
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Number</label>
+			<div class="col-sm-8">
+				<input name="test" class="form-control" data-validation="number" type="text" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Password</label>
+			<div class="col-sm-8">
+				<input name="pass" class="form-control" data-validation="confirmation" type="password" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Confirm Password</label>
+			<div class="col-sm-8">
+				<input name="pass_confirmation" class="form-control" type="password" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-8">
+				<input type="submit" class="btn btn-success">
+				<input type="reset" class="btn btn-warning">
+			</div>
+		</div>
+	</form>
+	<hr />
+	
+	<form id="form-d" class="form form-horizontal">
+		<h4>HTML5 attributes</h4>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">type="email"</label>
+			<div class="col-sm-8">
+				<input type="text" class="form-control" required="required" list="mejl" />
+				<datalist id="mejl">
+					<option value="Test">Test</option>
+					<option value="test2">test2</option>
+					<option value="test3">test3</option>
+				</datalist>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">type="url" (optional)</label>
+			<div class="col-sm-8">
+				<input type="url" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">type="number"</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" required="required" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">type="number" [Max:30]</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" required="required" maxlength="30" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">type="number" range[-5;5]</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" min="-5" max="5" required="required" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">pattern="^([a-z]+)$"</label>
+			<div class="col-sm-8">
+				<input type="text" class="form-control" name="some-colorz" list="some-colorz" pattern="^([a-z]+)$" required="required" />
+				<datalist id="some-colorz" style="display: none">
+					<option value="Green">Green</option>
+					<option value="Blue">Blue</option>
+					<option value="Red">Red</option>
+					<option value="Black">Black</option>
+					<option value="White">White</option>
+				</datalist>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-8">
+				<input type="submit" class="btn btn-success">
+				<input type="reset" class="btn btn-danger">
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+<!-- /panel -->
+</div>

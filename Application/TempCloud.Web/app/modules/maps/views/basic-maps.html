@@ -1,0 +1,197 @@
+<style scoped>
+	.angular-google-map-container { height: 400px; }
+</style>
+<div class="animated fadeInUpBig" ng-controller="basicMapsCtrl">
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Google Map
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<ui-gmap-google-map center='map.center' zoom='map.zoom' options="options"></ui-gmap-google-map>
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Google Map Rectangle
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<ui-gmap-google-map center="map2.center" zoom="map2.zoom" draggable="true" options="options" bounds="map2.bounds">
+		        <ui-gmap-rectangle bounds="bounds" fill="'#FFFFFF .5'"></ui-gmap-rectangle>
+		    </ui-gmap-google-map>
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Google Map Circle
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+		    <ui-gmap-google-map center="map3.center" zoom="map3.zoom" draggable="true" options="options">
+		        <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"
+		                visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" control="c.control"></ui-gmap-circle>
+		    </ui-gmap-google-map>
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Google Map Markers
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+		    <ui-gmap-google-map center="map4.center" zoom="map4.zoom" draggable="true" options="options" bounds="map4.bounds">
+		        <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'">
+		        </ui-gmap-markers>
+		    </ui-gmap-google-map>
+		</div>
+	</div>
+	<!-- /panel -->
+	
+
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Google Map Polygon
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+		    <ui-gmap-google-map center="map5.center" zoom="map5.zoom" draggable="true" options="options" bounds="map5.bounds">
+		        <ui-gmap-polygon static="true" ng-repeat="p in polygons track by p.id" path="p.path" stroke="p.stroke" visible="p.visible"
+		                 geodesic="p.geodesic" fill="p.fill" fit="false" editable="p.editable" draggable="p.draggable"></ui-gmap-polygon>
+		    </ui-gmap-google-map>
+		</div>
+	</div>
+	<!-- /panel -->
+
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Google Map Window
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+		    <ui-gmap-google-map center="map6.center" zoom="map6.zoom" draggable="true" options="options">
+		        <ui-gmap-marker idkey="marker1.id" coords="marker1.coords" options="marker1.options" click="onClick()" events="marker1.events" >
+		            <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+		                <div>{{title}}</div>
+		            </ui-gmap-window>
+		        </ui-gmap-marker>
+		    </ui-gmap-google-map>
+		</div>
+	</div>
+	<!-- /panel -->
+
+
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Google Map Markers With Window
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i> 
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i> 
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i> 
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+		    <ui-gmap-google-map center="map7.center" zoom="map7.zoom" draggable="true" options="options" bounds="map7.bounds">
+		        <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" ng-click="'onClick'">
+		            <ui-gmap-windows show="show">
+		                <div ng-non-bindable>{{title}}</div>
+		            </ui-gmap-windows>
+		        </ui-gmap-markers>
+		    </ui-gmap-google-map>
+		</div>
+	</div>
+	<!-- /panel -->
+</div>

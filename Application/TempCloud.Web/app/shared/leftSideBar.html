@@ -1,0 +1,224 @@
+<div class="left-bar" ng-controller="leftSideBarCtrl">
+        <div class="admin-logo">
+            <div class="logo-holder pull-left">
+                <img class="logo" ng-src="assets/images/example.png" alt="logo">   
+            </div>
+            <!-- logo-holder -->            
+            <a href="#"  ng-click="$storage.miniSidebar = $storage.miniSidebar ? false : true" class="menu-bar  pull-right"><i class="ti-menu"></i></a>
+        </div>
+        <!-- admin-logo -->
+        <ul class="list-unstyled menu-parent" id="mainMenu">
+            <li>
+                    <a ui-sref="app.dashboard">
+                        <i class="icon ti-cut"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+            </li>
+            <li class="submenu">
+                <a class="waves-effect waves-light" href="#layouts">
+                    <i class="icon ti-layout"></i>
+                    <span class="text">Unique Layouts</span>
+                    <i class="chevron ti-angle-right"></i>
+                </a>
+                <ul class="list-unstyled">
+                    <li><a ui-sref="collapsed-sidebar">Collapsed Sidebar</a></li>
+                    <li><a ui-sref="menu-with-header">Menu With Header</a></li>
+                    <li><a ui-sref="horizontal-menu">Horizontal Menu</a></li>
+                    <li><a ui-sref="right-sidebar">Right Sidebar</a></li>
+                    <li><a ui-sref="boxed-layout">Boxed Layout</a></li>
+                    <li><a ui-sref="app.dashboard">Static Sidebar</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a class="waves-effect waves-light" href="#piluku_premium">
+                    <i class="icon ti-gift"></i>
+                    <span class="text">Piluku Premium</span>
+                    <i class="chevron ti-angle-right"></i>
+                </a>
+                <ul class="list-unstyled" id="piluku_premium">
+                    <li><a href="widgets.html">Widgets</a></li>
+                    <li><a ui-sref="app.tasks">Tasks</a></li>
+                    <li><a  ui-sref="app.mailbox" >Mailbox</a></li>
+                    <li><a  ui-sref="app.profile" >Profile</a></li>
+                    <li><a  ui-sref="app.invoice" >Invoice</a></li>
+                    <li><a  ui-sref="app.timeline" >Timeline</a></li>
+                    <li><a  ui-sref="app.timeline2" >Timeline 2</a></li>
+                    <li><a  ui-sref="app.pricing" >Pricing</a></li>
+                    <li><a  ui-sref="app.gallery" >Gallery</a></li>
+                    <li><a  ui-sref="app.masonry-gallery">Masonry Gallery</a></li>
+                    <li><a  ui-sref="app.rotated-gallery">Rotated Gallery</a></li>
+                </ul>
+            </li>
+            <li>
+                <a ui-sref="app.typography">
+                    <i class="icon ti-smallcap"></i>
+                    <span class="text">Typography</span>
+                </a>
+            </li>               
+            <li class="submenu">
+                <a class="waves-effect waves-light" href="#components">
+                    <i class="icon ti-briefcase"></i>
+                    <span class="text">Components</span>
+                    <i class="chevron ti-angle-right"></i>
+                </a>
+                <ul class="list-unstyled" id="components">
+                    <li class="submenu">
+                        <a class="waves-effect waves-light" href="#alerts">
+                            Alerts
+                            <span class="pull-right drop-arrow">
+                                <i class="drop-indicator ti-angle-right chevron"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled" id="alerts">
+                            <li><a ui-sref="app.basic-alerts">Basic Alerts</a></li>
+                            <li><a ui-sref="app.sweet-alerts">Sweet Alerts</a></li>
+                        </ul>
+                    </li>
+                    <li><a ui-sref="app.progress-bars">Progress Bars</a></li>
+                    <li><a ui-sref="app.dropdowns">Dropdowns</a></li>
+                    <li><a ui-sref="app.info-boxes">Info Boxes</a></li>
+                    <li><a ui-sref="app.notifications">Notifications</a></li>
+                    <li><a ui-sref="app.buttons">Buttons</a></li>
+                    <li><a ui-sref="app.tree-view">Tree View</a></li>
+                    <li><a ui-sref="app.css3-animations">CSS3 Animations</a></li>
+                    <li><a ui-sref="app.sliders">Sliders</a></li>
+                    <li><a ui-sref="app.nestable-lists">Nestable Lists</a></li>
+                    <li><a ui-sref="app.carousel">Carousel</a></li>
+                    <li><a ui-sref="app.portlets">Portlets</a></li>
+                    <li class="submenu">
+                        <a class="waves-effect waves-light" href="#icons">
+                            Icons
+                            <span class="pull-right drop-arrow">
+                                <i class="drop-indicator ti-angle-right chevron"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled" id="maps">
+                            <li><a ui-sref="app.ion-icons">Ion Icons</a></li>
+                            <li><a ui-sref="app.fontawesome-icons">Font Awesome</a></li>
+                            <li><a ui-sref="app.themify-icons">Themify Icons</a></li>
+                        </ul>
+                    </li>
+                    <li><a ui-sref="app.tooltips">Tooltips</a></li>
+                    <li><a ui-sref="app.labels-badges">Labels Badges</a></li>
+                    <li><a ui-sref="app.list-groups">List Groups</a></li>
+                    <li><a ui-sref="app.breadcrumbs">Breadcrumbs</a></li>
+                    <li><a ui-sref="app.tabs-accordions">Tabs Accordions</a></li>
+                    <li><a ui-sref="app.file-manager">File Manager</a></li>
+                    <li><a ui-sref="app.modals">Modals</a></li>
+                    <li><a ui-sref="app.pagination">Pagination</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a class="waves-effect waves-light" href="#forms_elements">
+                    <i class="icon ti-book"></i>
+                    <span class="text">Forms</span>
+                    <i class="chevron ti-angle-right"></i>
+                </a>
+                <ul class="list-unstyled">
+                    <li><a ui-sref="app.dropzone-file-upload">Dropzone File Upload</a></li>
+                    <li><a ui-sref="app.form-validation">Form Validation</a></li>
+                    <li><a ui-sref="app.form-wizard">Form Wizard</a></li>
+                    <li><a ui-sref="app.input-groups">Input Groups</a></li>
+                    <li><a ui-sref="app.form-elements">Form Elements</a></li>
+                    <li><a href="multiple-file-upload.html">Multiple File Upload</a></li>
+                    <li><a href="image-crop-zoom.html">Image Crop Zoom</a></li>
+                    <li><a href="wysiwig.html">WYZIWIG &amp; Markdown</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a class="waves-effect waves-light" href="#tables">
+                    <i class="icon ti-layout-grid2"></i>
+                    <span class="text">Tables</span>
+                    <i class="chevron ti-angle-right"></i>
+                </a>
+                <ul class="list-unstyled" id="tables">
+                    <li><a ui-sref="app.basic-tables">Basic Tables</a></li>
+                    <li><a ui-sref="app.dynamic-tables">Dynamic Tables</a></li>
+                    <li><a ui-sref="app.editable-tables">Editable Tables</a></li>
+                    <li><a ui-sref="app.users-table">Users Table</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a class="waves-effect waves-light" href="#piluku_utility">
+                    <i class="icon ti-heart"></i>
+                    <span class="text">Piluku Utility</span>
+                    <i class="chevron ti-angle-right"></i>
+                </a>
+                <ul class="list-unstyled" id="piluku_utility">
+                    <li class="submenu">
+                        <a class="waves-effect waves-light" href="#register">
+                            Register
+                            <span class="pull-right drop-arrow">
+                                <i class="drop-indicator ti-angle-right chevron"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled" id="register">
+                            <li><a ui-sref="signup-one">Modal One</a></li>
+                            <li><a ui-sref="signup-two">Modal Two</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a class="waves-effect waves-light" href="#login">
+                            Login
+                            <span class="pull-right drop-arrow">
+                                <i class="drop-indicator ti-angle-right chevron"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled" id="login">
+                            <li><a ui-sref="signin-one">Modal One</a></li>
+                            <li><a ui-sref="signin-two">Modal Two</a></li>
+                        </ul>
+                    </li>
+                    <li><a ui-sref="forgot-password">Forgot Password</a></li>
+                    <li><a ui-sref="lock-screen">Lock Screen</a></li>
+                    <li><a ui-sref="lock-screen-two">Lock Screen 2</a></li>
+                    <li><a ui-sref="app.faq">FAQ</a></li>
+                    <li><a ui-sref="404">404</a></li>
+                    <li><a ui-sref="505">505</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a class="waves-effect waves-light" href="#charts">
+                    <i class="icon ti-bar-chart-alt"></i>
+                    <span class="text">Charts</span>
+                    <i class="chevron ti-angle-right"></i>
+                </a>
+                <ul class="list-unstyled" id="charts">
+                    <li><a ui-sref="app.line-area-charts">Line &amp; Area Charts</a></li>
+                    <li><a ui-sref="app.bar-charts">Bar Charts</a></li>
+                    <li><a ui-sref="app.pie-charts">Pie Charts</a></li>
+                    <li><a ui-sref="app.nvd3-charts">NVD3 Charts</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="waves-effect waves-light" ui-sref="app.basic-maps">
+                    <i class="icon ti-location-pin"></i>
+                    <span class="text">Maps</span>
+                </a>
+            </li>
+
+            <li class="submenu">
+                <a class="waves-effect waves-light" href="#menu_levels">
+                    <i class="icon ti-layout-list-thumb"></i>
+                    <span class="text">Menu Levels</span>
+                    <i class="chevron ti-angle-right"></i>
+                </a>
+                <ul class="list-unstyled" id="menu_levels">
+                    <li class="submenu">
+                        <a class="waves-effect waves-light" href="#menu_level_one">Menu Level 1.1
+                            
+                        </a>
+                        <ul class="list-unstyled" id="menu_level_one">
+                            <li><a href="#">Menu Level 2.1</a></li>
+                            <li><a href="#">Menu Level 2.2</a></li>
+                            <li><a href="#">Menu Level 2.3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Menu Level 1.2</a></li>
+                    <li><a href="#">Menu Level 1.3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- left-bar -->

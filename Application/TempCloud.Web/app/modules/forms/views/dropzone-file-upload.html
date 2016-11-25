@@ -1,0 +1,35 @@
+<div class="animated fadeInUpBig" ng-controller="dropzoneUpload">
+	<!-- panel -->
+	<div class="panel panel-piluku">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Dropzone File Upload
+				<span class="panel-options">
+					<a href="#" class="panel-refresh">
+						<i class="icon ti-reload"></i>
+					</a>
+					<a href="#" class="panel-minimize">
+						<i class="icon ti-angle-up"></i>
+					</a>
+					<a href="#" class="panel-close">
+						<i class="icon ti-close"></i>
+					</a>
+				</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<form id="upload" method="post" action="upload.php" enctype="multipart/form-data">
+	             <div id="drop" >
+	              Drop Here
+	              <br />
+	              <a>Browse</a>
+	              <input type="file" name="upl" multiple />
+	            </div>
+	            <ul>
+	              <!-- The file uploads will be shown here -->
+	            </ul>
+	          </form>
+		</div>
+	</div>
+	<!-- /panel -->
+</div>

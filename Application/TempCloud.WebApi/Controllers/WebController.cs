@@ -9,6 +9,7 @@ using TempCloud.ViewModel;
 
 namespace TempCloud.WebApi.Controllers
 {
+    [RoutePrefix("Web")]
     public class WebController : ApiController
     {
         private readonly IDeviceService service;
