@@ -172,7 +172,7 @@ namespace TempCloud.WebApi.Controllers
         {
             var user = HttpContext.Current.User;
             string userId = user.Identity.GetUserId();
-            if (string.IsNullOrEmpty(userId) || (!user.IsInRole("Admin") && !user.IsInRole("Owner")))
+            if (string.IsNullOrEmpty(userId) || (!user.IsInRole("Admin")))
             {
                 return NotFound();
             }
@@ -201,7 +201,7 @@ namespace TempCloud.WebApi.Controllers
         public IHttpActionResult GetUserById(string userId)
         {
             var currentUser = HttpContext.Current.User;
-            if (!currentUser.IsInRole("Admin") && !currentUser.IsInRole("Owner"))
+            if (!currentUser.IsInRole("Admin"))
             {
                 return NotFound();
             }

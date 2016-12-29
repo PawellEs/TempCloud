@@ -1,7 +1,7 @@
 <div class="left-bar" ng-controller="leftSideBarCtrl">
         <div class="admin-logo">
             <div class="logo-holder pull-left">
-                <img class="logo" ng-src="assets/images/cloudLogoMenu.png" alt="logo">   
+                <img class="logo" ng-src="assets/images/" alt="TES CLOUD">   
             </div>
             <!-- logo-holder -->            
             <a href="#"  ng-click="$storage.miniSidebar = $storage.miniSidebar ? false : true" class="menu-bar  pull-right"><i class="ti-menu"></i></a>
@@ -14,21 +14,8 @@
                 <span class="text">Dashboard</span>
             </a>
         </li>
-            <li ng-if="$root.userRole=='Owner' || $root.userRole=='Admin' || $root.userRole=='Service'"><a ui-sref="app.users-table"><i class="icon ion-person"></i><span class="text">Users</span></a></li>
-            <li ng-if="$root.userRole=='Admin' || $root.userRole=='Service'"><a ui-sref="app.farms-table"><i class="icon ion-person"></i><span class="text">Farms</span></a></li>
-            <li class="submenu" ng-if="$root.userRole=='Owner' || $root.userRole=='Technician'">
-                <a class="waves-effect waves-light" href="#systems_menu">
-                    <i class="icon ti-layout-list-thumb"></i>
-                    <span class="text">Systems</span>
-                    <i class="chevron ti-angle-right"></i>
-                </a>
-                <ul class="list-unstyled" id="systems_menu">
-                    
-                    <li><a ui-sref="app.dynamic-tables">List</a></li>
-                    <li  style="display: none"><a ui-sref="app.tree-view">Tree View</a></li>
-                    <li  style="display: none"><a ui-sref="app.basic-maps">Map</a></li>
-                </ul>
-            </li>
+            <li ng-if="$root.userRole=='Admin'"><a ui-sref="app.users-table"><i class="icon ion-person"></i><span class="text">Users</span></a></li>
+            <li ng-if="$root.userRole=='Admin' || $root.userRole=='Owner'"><a ui-sref="app.devices-table"><i class="icon ion-android-laptop"></i><span class="text">Devices</span></a></li>
             <li><a ui-sref="app.basic-alerts"><i class="icon ion-ios-bell"></i><span class="text">Alerts</span></a></li>
 
 

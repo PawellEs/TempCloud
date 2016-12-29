@@ -157,6 +157,67 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
 
     $('.counter').each(count);
 
+    $http({
+        method: 'GET',
+        url: myApp.API + 'Web/GetUserCounters',
+        // data: serializedData,
+        headers: {
+            'Authorization': 'Bearer ' + myApp.getToken()
+        }
+    }).then(function (result) {
+        if (result.statusText === "OK") {
+            $scope.deviceCounters = result.data;
+        }
+
+    });
+
+    //device issues today
+    $http({
+        method: 'GET',
+        url: myApp.API + 'Web/GetCurrentStatus',
+        // data: serializedData,
+        headers: {
+            'Authorization': 'Bearer ' + myApp.getToken()
+        }
+    }).then(function (result) {
+        if (result.statusText === "OK") {
+            $scope.todayStatus = result.data;
+        }
+
+    });
+
+
+
+    //device issues yesterday
+    $http({
+        method: 'GET',
+        url: myApp.API + 'Web/GetYesterdayStatus',
+        // data: serializedData,
+        headers: {
+            'Authorization': 'Bearer ' + myApp.getToken()
+        }
+    }).then(function (result) {
+        if (result.statusText === "OK") {
+            $scope.yesterdayStatus = result.data;
+        }
+
+    });
+
+
+    //device issues last week
+    $http({
+        method: 'GET',
+        url: myApp.API + 'Web/GetWeekStatus',
+        // data: serializedData,
+        headers: {
+            'Authorization': 'Bearer ' + myApp.getToken()
+        }
+    }).then(function (result) {
+        if (result.statusText === "OK") {
+            $scope.weekStatus = result.data;
+        }
+
+    });
 
     function count(options) {
         var $this = $(this);
@@ -2057,8 +2118,6 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
     // device Controller
     .controller('devicesTableCtrl', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         var searchObject = $location.search();
-        var systemId = searchObject.systemId;
-        $scope.systemId = systemId;
         $(".deleteDeviceButton").on("click", function (e) {
             e.preventDefault();
             $http({
@@ -2225,7 +2284,7 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
                 $("#createUserMessage").text("Password should be longer than 5 chars");
             }
             else if ($('#devicesSelectCreate option:selected').length == 0) {
-                $("#createUserMessage").text("Select at least one system for new user");
+                $("#createUserMessage").text("Select at least one device for new user");
             } else if (!validateEmail($("#emailField").val())) {
                 $("#createUserMessage").text("Wrong email address");
             } else {
@@ -2233,7 +2292,7 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
                 $('#devicesSelectCreate option:selected').each(function () {
                     selectValues.push($(this).val());
                 });
-                var serializedData = { Email: $("#emailField").val(), Password: $("#passwordField").val(), ConfirmPassword: $("#passwordField2").val(), FirstName: $("#firstNameField").val(), LastName: $("#lastNameField").val(), RoleId: $("#roleField").val(), AssignedSystems: selectValues };
+                var serializedData = { Email: $("#emailField").val(), Password: $("#passwordField").val(), ConfirmPassword: $("#passwordField2").val(), FirstName: $("#firstNameField").val(), LastName: $("#lastNameField").val(), RoleId: $("#roleField").val(), AssignedDevices: selectValues };
                 $http({
                     method: 'POST',
                     url: myApp.API + 'api/Account/Register',
@@ -2290,8 +2349,8 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
                         $.each(result.data, function (i, val) {
                             html += "<option value='" + val.Id + "' " + (userData.AssignedDevices.indexOf(val.Id) >= 0 ? "selected" : "") + ">" + val.Name + "</option>";
                         });
-                        $("#devicessSelect").html(html);
-                        $("#devicessSelect").multiselect();
+                        $("#devicesSelect").html(html);
+                        $("#devicesSelect").multiselect();
                         $(".multiselect-container input").show();
                         // console.log(result.data)
                         //   $("#roleField").val(result.data.Role);
@@ -2310,7 +2369,7 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
         $("#editUser").click(function (e) {
             e.preventDefault();
             var selectValues = new Array();
-            $('#systemsSelect option:selected').each(function () {
+            $('#devicesSelect option:selected').each(function () {
                 selectValues.push($(this).val());
             });
             var serializedData = { Id: $("#userIdField").val(), FirstName: $("#firstNameField").val(), LastName: $("#lastNameField").val(), Role: $("#roleField").val(), AssignedDevices: selectValues };

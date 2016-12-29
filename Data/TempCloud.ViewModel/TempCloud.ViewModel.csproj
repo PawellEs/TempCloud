@@ -54,6 +54,7 @@
     <Compile Include="StatusHistoryViewModel.cs" />
     <Compile Include="StatusViewModel.cs" />
     <Compile Include="UserDataViewModel.cs" />
+    <Compile Include="UserStatusesViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

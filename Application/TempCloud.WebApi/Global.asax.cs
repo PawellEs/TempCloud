@@ -66,12 +66,15 @@ namespace TempCloud.WebApi
 
         void Application_BeginRequest(object sender, EventArgs e)
         {
-            var res = HttpContext.Current.Response;
-            var req = HttpContext.Current.Request;
-            if (req.HttpMethod == "OPTIONS")
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
             {
-                res.StatusCode = 200;
-                res.End();
+                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+
+                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+                HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", "1728000");
+                HttpContext.Current.Response.StatusCode = 200;
+                HttpContext.Current.Response.End();
             }
         }
     }

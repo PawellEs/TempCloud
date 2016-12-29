@@ -176,5 +176,20 @@ namespace TempCloud.Service.Services
 
             return result;
         }
+
+        public UserStatusesViewModel GetYesterdayLogsStatistics(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserStatusesViewModel GetDailyLogsStatistics(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserStatusesViewModel GetWeekLogsStatistics(string userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

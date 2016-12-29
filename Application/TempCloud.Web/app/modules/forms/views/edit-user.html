@@ -47,19 +47,16 @@
 			            <select class="name_search form-control" name="role" id="roleField">
 			                <option value="0"></option>
 			                <option value="1">Admin</option>
-			                <option value="2">Service</option>
-			                <option value="3">Owner</option>
-			                <option value="4">Technician</option>
-
+			                <option value="2">Owner</option>
 			            </select>
 			        </div>
 			    </div>
 			    <div class="form-group" ng-if="$root.userRole=='Owner'">
-			        <label class="col-sm-2 control-label">Assigned Systems:</label>
+			        <label class="col-sm-2 control-label">Assigned Devices:</label>
 			        <div class="col-sm-8">
 
 
-			            <select id="systemsSelect" multiple="multiple">
+			            <select id="devicesSelect" multiple="multiple">
 
 			            </select>
 			        </div>

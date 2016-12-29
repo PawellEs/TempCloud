@@ -69,7 +69,7 @@ namespace TempCloud.WebApi.Controllers
         [Route("AddOrUpdateDevice")]
         public IHttpActionResult AddOrUpdateDevice(DeviceFormViewModel model)
         {
-            if (!HttpContext.Current.User.IsInRole("Admin"))
+            if (!HttpContext.Current.User.IsInRole("Admin") || !HttpContext.Current.User.IsInRole("Owner"))
             {
                 return Unauthorized();
             }
@@ -102,7 +102,7 @@ namespace TempCloud.WebApi.Controllers
         [Route("DeleteDevice/{deviceId}")]
         public IHttpActionResult DeleteDevice(int deviceId)
         {
-            if (!HttpContext.Current.User.IsInRole("Admin"))
+            if (!HttpContext.Current.User.IsInRole("Admin") || !HttpContext.Current.User.IsInRole("Owner"))
             {
                 return Unauthorized();
             }
@@ -116,6 +116,71 @@ namespace TempCloud.WebApi.Controllers
             {
                 return BadRequest();
             }
+        }
+
+        [Route("GetWeekStatus")]
+        public IHttpActionResult GetWeekDevicesStatus()
+        {
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.GetWeekLogsStatistics(userId);
+            return Ok(result);
+        }
+
+        [Route("GetYesterdayStatus")]
+        public IHttpActionResult GetYesterdayDevicesStatus()
+        {
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.GetYesterdayLogsStatistics(userId);
+            return Ok(result);
+        }
+
+        [Route("GetCurrentStatus")]
+        public IHttpActionResult GetCurrentDevicesStatus()
+        {
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId))
+            {
+                return NotFound();
+            }
+
+            var result = this.service.GetDailyLogsStatistics(userId);
+            return Ok(result);
+        }
+
+        [Route("GetUserCounters")]
+        public IHttpActionResult GetUserCounters()
+        {
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            if (string.IsNullOrEmpty(userId))
+            {
+                return NotFound();
+            }
+
+            var counters = this.service.GetUserDevice(userId);
+            return Ok(counters.Count);
+        }
+
+        [Route("getUserDevices")]
+        public IHttpActionResult GetUserSystems()
+        {
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            if (userId == null)
+            {
+                return NotFound();
+            }
+            var userDevices = this.service.GetUserDevice(userId);
+
+            return Ok(userDevices);
         }
     }
 }

@@ -7,7 +7,7 @@
             <div class="col-md-9">
                 <div class="buttons-list">
                     <div class="pull-right-btn">
-                        <a href="#/app/create-device?systemId={{systemId}}" class="btn btn-primary addUserButton" ng-if="$root.userRole=='Admin' || $root.userRole=='Service'">Add New Device</a>
+                        <a href="#/app/create-device" class="btn btn-primary addUserButton" ng-if="$root.userRole=='Admin' || $root.userRole=='Owner'">Add New Device</a>
 
                     </div>
                 </div>
@@ -21,7 +21,7 @@
 			<div class="panel panel-piluku panel-users">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						List of Systems
+						List of Devices
 						<span class="panel-options">
 							<a href="#" class="panel-refresh">
 								<i class="icon ti-reload"></i> 
@@ -48,7 +48,7 @@
 								  
 									<th class="text-center">Edit</th>
 								  
-                                    <th class="text-center" ng-if="$root.userRole=='Admin'">Delete</th>
+                                    <th class="text-center">Delete</th>
 									
 								</tr>
 							</thead>
@@ -61,9 +61,9 @@
 
 								    
 									<td>
-										<a href="#/app/edit-device?deviceId={{device.Id}}&systemId={{systemId}}" class="btn btn-green" data-deviceId="{{device.Id}}"><i class="ion ion-edit"></i></a>
+										<a href="#/app/edit-device?deviceId={{device.Id}}" class="btn btn-green" data-deviceId="{{device.Id}}"><i class="ion ion-edit"></i></a>
 									</td>
-								    <td ng-if="$root.userRole=='Admin'">
+								    <td>
                                    
 								        <a href="" class="btn btn-red deleteDeviceButton" ng-click="$parent.delete(device.Id)" data-deviceId="{{device.Id}}"><i class="ion ion-ios-trash-outline"></i></a>
 								    </td>

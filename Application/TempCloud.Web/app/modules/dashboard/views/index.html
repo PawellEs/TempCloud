@@ -1,118 +1,93 @@
-	<div class="animated fadeInUpBig" ng-controller="dashboardCtrl">
-					<div class="row">
-				<div class="col-md-4 nopad-right">
-					<div class="dashboard-stats">
-						<div class="left">
-							<h3 class="flatBluec">{{farmCounters.FarmsCounter}}</h3>
-							<h4>Farms</h4>
-						</div>
-						<div class="right flatBlue">
-							<i class="ion ion-home"></i>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4  nopad-right">
-					<div class="dashboard-stats">
-						<div class="left">
-							<h3 class="flatGreenc">{{farmCounters.SystemsCounter}}</h3>
-							<h4>Systems</h4>
-						</div>
-						<div class="right flatGreen">
-							<i class="ion ion-cube"></i>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4  nopad-right">
-					<div class="dashboard-stats">
-						<div class="left">
-							<h3 class="flatRedc">{{farmCounters.DevicesCounter}}</h3>
-							<h4>Devices</h4>
-						</div>
-						<div class="right flatRed">
-							<i class="ion ion-monitor"></i>
-						</div>
-					</div>
-				</div>
-				
-			
+<div class="animated fadeInUpBig" ng-controller="dashboardCtrl">
+    <div class="row ">
 
-				<div class="col-md-4 nopad-right">
-					<div class="piluku-panel no-pad panel">
-						<div class="sparkline-widget">				
-							<div class="heading-info flatRed" style="    height: 100px;">
-								<p class="pull-left" style="position: relative;font-size: 40px;top: 10px; width: 100%; text-align: center;">TODAY</p>
-								
-							</div>
-							
-							<div class="info-bottom">
-								<div class="col-md-6 left">
-									Online
-									<p class="flatGreenc">{{todayStatus.NumberOfWorkingDevices}}/{{todayStatus.NumberOfDevices}}</p>
-								</div>
-								<div class="col-md-6 right">
-									Issue
-									<p class="flatRedc">{{todayStatus.NumberOfErrors}}</p>
-								</div>
-							</div>
-						</div>
-						<!-- sparkline-widget -->
-					</div>
-					<!-- panel -->
-				</div>
-				<!-- col-md-6 -->
+        <div class="col-md-4  nopad-right">
+            <div class="dashboard-stats">
+                <div class="center">
+                    <h3 class="flatRedc">{{deviceCounters.DevicesCounter}}</h3>
+                    <h4>Devices</h4>
+                </div>
+                <div class="right flatRed">
+                    <i class="ion ion-monitor"></i>
+                </div>
+            </div>
+        </div>
 
-				<div class="col-md-4 nopad-right">
-					<div class="piluku-panel no-pad panel">	
-                        <div class="sparkline-widget">
-                            <div class="heading-info flatGreen" style="    height: 100px;">
-                                <p class="pull-left" style="position: relative;font-size: 40px;top: 10px;width: 100%; text-align: center;">YESTERDAY</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4 nopad-right">
+            <div class="piluku-panel no-pad panel">
+                <div class="sparkline-widget">
+                    <div class="heading-info flatRed" style=" height: 100px;">
+                        <p class="pull-left" style="position: relative;font-size: 40px;top: 10px; width: 100%; text-align: center;">TODAY</p>
 
-                            </div>
+                    </div>
 
-                            <div class="info-bottom">
-                                <div class="col-md-6 left">
-                                    Online
-                                    <p class="flatGreenc">{{yesterdayStatus.NumberOfWorkingDevices}}/{{yesterdayStatus.NumberOfDevices}}</p>
-                                </div>
-                                <div class="col-md-6 right">
-                                    Issue
-                                    <p class="flatRedc">{{yesterdayStatus.NumberOfErrors}}</p>
-                                </div>
-                            </div>
+                    <div class="info-bottom">
+                        <div class="col-md-6 left">
+                            Online
+                            <p class="flatGreenc">{{todayStatus.NumberOfWorkingDevices}}/{{todayStatus.NumberOfDevices}}</p>
                         </div>
-						<!-- sparkline-widget -->
-					</div>
-					<!-- panel -->
-				</div>
-				<!-- col-md-6 -->
-
-				<div class="col-md-4 nopad-right">
-					<div class="piluku-panel no-pad panel">						
-                        <div class="sparkline-widget">
-                            <div class="heading-info flatOrange" style="    height: 100px;">
-                                <p class="pull-left" style="position: relative;font-size: 40px;top: 10px;width: 100%; text-align: center;">LAST 7 DAYS</p>
-
-                            </div>
-
-                            <div class="info-bottom">
-                                <div class="col-md-6 left">
-                                    Online
-                                    <p class="flatGreenc">{{weekStatus.NumberOfWorkingDevices}}/{{weekStatus.NumberOfDevices}}</p>
-                                </div>
-                                <div class="col-md-6 right">
-                                    Issue
-                                    <p class="flatRedc">{{weekStatus.NumberOfErrors}}</p>
-                                </div>
-                            </div>
+                        <div class="col-md-6 right">
+                            Issue
+                            <p class="flatRedc">{{todayStatus.NumberOfErrors}}</p>
                         </div>
-						<!-- sparkline-widget -->
-					</div>
-					<!-- panel -->
-				</div>
-				<!-- col-md-6 -->	
+                    </div>
+                </div>
+                <!-- sparkline-widget -->
+            </div>
+            <!-- panel -->
+        </div>
+        <!-- col-md-6 -->
+        <div class="col-md-4 nopad-right">
+            <div class="piluku-panel no-pad panel">
+                <div class="sparkline-widget">
+                    <div class="heading-info flatGreen" style=" height: 100px;">
+                        <p class="pull-left" style="position: relative;font-size: 40px;top: 10px;width: 100%; text-align: center;">YESTERDAY</p>
 
-		
-			<!-- row -->
-		</div>	
-	</div>
-	
+                    </div>
+
+                    <div class="info-bottom">
+                        <div class="col-md-6 left">
+                            Online
+                            <p class="flatGreenc">{{yesterdayStatus.NumberOfWorkingDevices}}/{{yesterdayStatus.NumberOfDevices}}</p>
+                        </div>
+                        <div class="col-md-6 right">
+                            Issue
+                            <p class="flatRedc">{{yesterdayStatus.NumberOfErrors}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- sparkline-widget -->
+            </div>
+            <!-- panel -->
+        </div>
+        <!-- col-md-6 -->
+        <div class="col-md-4 nopad-right">
+            <div class="piluku-panel no-pad panel">
+                <div class="sparkline-widget">
+                    <div class="heading-info flatOrange" style=" height: 100px;">
+                        <p class="pull-left" style="position: relative;font-size: 40px;top: 10px;width: 100%; text-align: center;">LAST 7 DAYS</p>
+
+                    </div>
+
+                    <div class="info-bottom">
+                        <div class="col-md-6 left">
+                            Online
+                            <p class="flatGreenc">{{weekStatus.NumberOfWorkingDevices}}/{{weekStatus.NumberOfDevices}}</p>
+                        </div>
+                        <div class="col-md-6 right">
+                            Issue
+                            <p class="flatRedc">{{weekStatus.NumberOfErrors}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- sparkline-widget -->
+            </div>
+            <!-- panel -->
+        </div>
+        <!-- col-md-6 -->
+        <!-- row -->
+    </div>
+</div>
+

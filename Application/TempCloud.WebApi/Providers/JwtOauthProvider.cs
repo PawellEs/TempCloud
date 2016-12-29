@@ -30,9 +30,9 @@ namespace TempCloud.WebApi.Providers
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
 
-            var allowedOrigin = "*";
+            //var allowedOrigin = "*";
 
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
+            //context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
 
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
@@ -51,7 +51,7 @@ namespace TempCloud.WebApi.Providers
             }
 
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, "JWT");
-
+            oAuthIdentity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
             var ticket = new AuthenticationTicket(oAuthIdentity, null);
 
             context.Validated(ticket);

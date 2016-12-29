@@ -48,12 +48,12 @@
 
 								    <th class="text-center">E-Mail</th>
 
-								    <th class="text-center" ng-if="$root.userRole=='Admin'  || $root.userRole=='Service'">Farm Name</th>
-                                    <th class="text-center" ng-if="$root.userRole=='Owner'">System Name</th>
+								    <th class="text-center" ng-if="$root.userRole=='Admin'">Device Name</th>
+                                    
 									<th  class="text-center">Created On</th>
 									<th>&nbsp;</th>
 								  
-                                    <th class="text-center" ng-if="$root.userRole=='Admin'   || $root.userRole=='Service'   || $root.userRole=='Owner'">&nbsp;</th>
+                                    <th class="text-center" ng-if="$root.userRole=='Admin'">&nbsp;</th>
 									
 								</tr>
 							</thead>
@@ -65,13 +65,12 @@
 
 
 								    <td>{{user.Email}}</td>
-								    <td ng-if="$root.userRole=='Admin' || $root.userRole=='Service'">{{user.FarmName}}</td>
-                                    <td ng-if="$root.userRole=='Owner'">{{user.SystemName}}</td>
+								    <td ng-if="$root.userRole=='Admin'">{{user.DeviceName}}</td>
 									<td>{{user.RegistrationDate.toString().replace("T"," ")}}</td>
 									<td>
 										<a href="#/app/edit-user?userId={{user.Id}}" class="btn btn-green" data-userid="{{user.Id}}"><i class="ion ion-edit"></i></a>
 									</td>
-								    <td ng-if="$root.userRole=='Admin' || $root.userRole=='Service'   || $root.userRole=='Owner'">
+								    <td ng-if="$root.userRole=='Admin'">
                                    
 								        <a href="" class="btn btn-red deleteUserButton" data-userid="{{user.Id}}"><i class="ion ion-ios-trash-outline"></i></a>
 								    </td>

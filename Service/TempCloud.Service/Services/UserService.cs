@@ -330,13 +330,13 @@ namespace TempCloud.Service.Services
             return true;
         }
 
-        public void AssignDevicesToUser(string userId, List<int> systems)
+        public void AssignDevicesToUser(string userId, List<int> devices)
         {
             try
             {
                 using (var context = this.GetDataContext())
                 {
-                    foreach (var item in systems)
+                    foreach (var item in devices)
                     {
                         var newAssign = new UserDevice() { UserId = userId, DeviceId = item };
                         context.UserDevices.Add(newAssign);
