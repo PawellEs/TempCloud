@@ -32,7 +32,7 @@ namespace TempCloud.Service.Interfaces
 
         List<UserDataViewModel> GetUserByPage(string userId, int page = 1, int itemsNumber = 10);
 
-        bool SetRole(string userId, string role);
+        bool SetRole(string userId, int roleId);
 
         void AssignDevicesToUser(string userId, List<int> systems);
     }

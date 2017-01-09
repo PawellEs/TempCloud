@@ -69,12 +69,7 @@ namespace TempCloud.WebApi.Controllers
         [Route("AddOrUpdateDevice")]
         public IHttpActionResult AddOrUpdateDevice(DeviceFormViewModel model)
         {
-            if (!HttpContext.Current.User.IsInRole("Admin") || !HttpContext.Current.User.IsInRole("Owner"))
-            {
-                return Unauthorized();
-            }
-
-            var result = this.service.AddOrUpdateDevice(model.Name, model.DeviceId, model.TypeId);
+            var result = this.service.AddOrUpdateDevice(model.Name, model.DeviceId, model.TypeId, HttpContext.Current.User.Identity.GetUserId());
             if (result)
             {
                 return Ok();
@@ -102,11 +97,6 @@ namespace TempCloud.WebApi.Controllers
         [Route("DeleteDevice/{deviceId}")]
         public IHttpActionResult DeleteDevice(int deviceId)
         {
-            if (!HttpContext.Current.User.IsInRole("Admin") || !HttpContext.Current.User.IsInRole("Owner"))
-            {
-                return Unauthorized();
-            }
-
             var result = this.service.DeleteDevice(deviceId);
             if (result)
             {

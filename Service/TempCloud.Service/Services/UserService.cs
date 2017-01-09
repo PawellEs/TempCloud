@@ -291,23 +291,6 @@ namespace TempCloud.Service.Services
                     user.AlertInterval = model.AlertInterval;
                     context.SaveChanges();
 
-                    var devices = context.UserDevices.Where(x => x.UserId.Equals(model.Id)).ToList();
-                    foreach (var item in devices)
-                    {
-                        if (!model.AssignedDevices.Contains(item.DeviceId))
-                        {
-                            context.UserDevices.Remove(item);
-                        }
-                    }
-                    context.SaveChanges();
-                    foreach (var item in model.AssignedDevices)
-                    {
-                        if (!devices.Any(x => x.DeviceId.Equals(item)))
-                        {
-                            context.UserDevices.Add(new UserDevice() { UserId = model.Id, DeviceId = item });
-                        }
-                    }
-                    context.SaveChanges();
                     var userStore = new UserStore<ApplicationUser>(context);
                     var userManager = new UserManager<ApplicationUser>(userStore);
                     userManager.RemoveFromRoles(user.Id, new string[] { "Admin", "Owner" });
@@ -367,7 +350,7 @@ namespace TempCloud.Service.Services
             }
         }
 
-        public bool SetRole(string userId, string role)
+        public bool SetRole(string userId, int roleId)
         {
             try
             {
@@ -382,7 +365,14 @@ namespace TempCloud.Service.Services
                     var userStore = new UserStore<ApplicationUser>(context);
                     var userManager = new UserManager<ApplicationUser>(userStore);
                     userManager.RemoveFromRoles(user.Id, new string[] { "Admin", "Owner" });
-                    userManager.AddToRole(user.Id, role);
+                    if (roleId == 1)
+                    {
+                        userManager.AddToRole(user.Id, "Admin");
+                    }
+                    else
+                    {
+                        userManager.AddToRole(user.Id, "Owner");
+                    }
                 }
             }
             catch (System.Exception ex)

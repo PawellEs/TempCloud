@@ -2173,12 +2173,25 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
     }])
 
 // usersTable Controller
-.controller('usersTableCtrl', ['$scope', function ($scope) {
-
+.controller('usersTableCtrl', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+    var searchObject = $location.search();
     $(".deleteUserButton").on("click", function (e) {
         e.preventDefault();
-        console.log("asd");
+        $http({
+            method: 'GET',
+            url: myApp.API + 'api/Account/DeleteUser/' + $(e.target).attr("data-userid"),
+            // data: serializedData,
+            headers: {
+                'Authorization': 'Bearer ' + myApp.getToken()
+            }
+        }).then(function (result) {
+            if (result.statusText === "OK") {
+                window.location.href = "/#app/users-table";
+            }
+
+        });
     });
+    
     function postData() {
         var searchVal = $('#search').val();
         if (searchVal.length > 0) {
@@ -2224,11 +2237,9 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
         });
     });
 
-
-
     $http({
         method: 'GET',
-        url: myApp.API + 'api/Account/GetAllUsers',
+        url: myApp.API + 'api/Account/GetAllUsers/',
         // data: serializedData,
         headers: {
             'Authorization': 'Bearer ' + myApp.getToken()
@@ -2254,45 +2265,17 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
         }
-        $http({
-            method: 'GET',
-            url: myApp.API + 'Web/getUserDevices',
-            // data: serializedData,
-            headers: {
-                'Authorization': 'Bearer ' + myApp.getToken()
-            }
-        }).then(function (result) {
-            if (result.statusText === "OK") {
-                $scope.systemList = result.data;
-                var html = "";
-                $.each(result.data, function (i, val) {
-                    html += "<option value='" + val.Id + "'>" + val.Name + "</option>";
-                });
-                $("#devicesSelectCreate").html(html);
-                $("#devicessSelectCreate").multiselect();
-                $(".multiselect-container input").show();
-                // console.log(result.data)
-                //   $("#roleField").val(result.data.Role);
-            }
 
-        });
         $("#createUser").click(function (e) {
             e.preventDefault();
             if ($("#passwordField").val() !== $("#passwordField2").val()) {
                 $("#createUserMessage").text("Passwords are not the same");
             } else if ($("#passwordField").val().length < 6) {
                 $("#createUserMessage").text("Password should be longer than 5 chars");
-            }
-            else if ($('#devicesSelectCreate option:selected').length == 0) {
-                $("#createUserMessage").text("Select at least one device for new user");
             } else if (!validateEmail($("#emailField").val())) {
                 $("#createUserMessage").text("Wrong email address");
             } else {
-                var selectValues = new Array();
-                $('#devicesSelectCreate option:selected').each(function () {
-                    selectValues.push($(this).val());
-                });
-                var serializedData = { Email: $("#emailField").val(), Password: $("#passwordField").val(), ConfirmPassword: $("#passwordField2").val(), FirstName: $("#firstNameField").val(), LastName: $("#lastNameField").val(), RoleId: $("#roleField").val(), AssignedDevices: selectValues };
+                var serializedData = { Email: $("#emailField").val(), Password: $("#passwordField").val(), ConfirmPassword: $("#passwordField2").val(), FirstName: $("#firstNameField").val(), LastName: $("#lastNameField").val(), RoleId: $("#roleField").val()};
                 $http({
                     method: 'POST',
                     url: myApp.API + 'api/Account/Register',
@@ -2335,28 +2318,6 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
                 var userData = result.data;
                 // console.log(result.data)
                 $("#roleField").val(result.data.Role);
-                $http({
-                    method: 'GET',
-                    url: myApp.API + 'Web/getUserDevices',
-                    // data: serializedData,
-                    headers: {
-                        'Authorization': 'Bearer ' + myApp.getToken()
-                    }
-                }).then(function (result) {
-                    if (result.statusText === "OK") {
-                        $scope.systemList = result.data;
-                        var html = "";
-                        $.each(result.data, function (i, val) {
-                            html += "<option value='" + val.Id + "' " + (userData.AssignedDevices.indexOf(val.Id) >= 0 ? "selected" : "") + ">" + val.Name + "</option>";
-                        });
-                        $("#devicesSelect").html(html);
-                        $("#devicesSelect").multiselect();
-                        $(".multiselect-container input").show();
-                        // console.log(result.data)
-                        //   $("#roleField").val(result.data.Role);
-                    }
-
-                });
             }
 
         });
@@ -2368,11 +2329,7 @@ myApp.controller('MainCtrl', ['$scope', 'cfpLoadingBar', '$localStorage', '$ocLa
 
         $("#editUser").click(function (e) {
             e.preventDefault();
-            var selectValues = new Array();
-            $('#devicesSelect option:selected').each(function () {
-                selectValues.push($(this).val());
-            });
-            var serializedData = { Id: $("#userIdField").val(), FirstName: $("#firstNameField").val(), LastName: $("#lastNameField").val(), Role: $("#roleField").val(), AssignedDevices: selectValues };
+            var serializedData = { Id: $("#userIdField").val(), FirstName: $("#firstNameField").val(), LastName: $("#lastNameField").val(), Role: $("#roleField").val() };
 
             $http({
                 method: 'POST',

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TempCloud.ViewModel
+namespace TempCloud.Generator
 {
-    public class ControllerStatusViewModel      
+    public class ControllerStatusViewModel
     {
         public int DeviceId { get; set; }
         public DateTime SystemDateTime { get; set; }

@@ -66,12 +66,17 @@ namespace TempCloud.WebApi
 
         void Application_BeginRequest(object sender, EventArgs e)
         {
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type,Content-Range, Content-Disposition, Content-Description, Authorization, X-Requested-With");
+            HttpContext.Current.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS, X-Requested-With");
+            HttpContext.Current.Response.Headers.Remove("Allow");
+            HttpContext.Current.Response.Headers.Add("Allow", "GET, POST, PUT, DELETE, OPTIONS, X-Requested-With");
+            HttpContext.Current.Response.Headers.Add("Access-Control-Allow-Origin", "*");
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
             {
-                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+               // HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 
-                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+               // HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+                //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Authorization");
                 HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", "1728000");
                 HttpContext.Current.Response.StatusCode = 200;
                 HttpContext.Current.Response.End();

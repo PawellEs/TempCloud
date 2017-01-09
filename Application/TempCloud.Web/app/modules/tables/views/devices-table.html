@@ -44,7 +44,7 @@
 									<th  class="text-center">Device Id</th>
 									<th  class="text-center">Device Name</th>
                                     <th class="text-center">Device Type</th>
-								    
+                                    <th class="text-center">Actual Status</th>
 								  
 									<th class="text-center">Edit</th>
 								  
@@ -58,7 +58,7 @@
 									<td>{{device.Id}}</td>
 									<td>{{device.Name}}</td>
                                     <td>{{device.TypeName}}</td>
-
+                                    <td>{{device.Value}}</td>
 								    
 									<td>
 										<a href="#/app/edit-device?deviceId={{device.Id}}" class="btn btn-green" data-deviceId="{{device.Id}}"><i class="ion ion-edit"></i></a>

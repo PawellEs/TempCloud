@@ -18,7 +18,7 @@ namespace TempCloud.Service.Interfaces
         List<DeviceViewModel> GetUserDevice(string userId);
         List<DeviceStatusViewModel> GetDevicesByType(int typeId, string userId);
         List<DeviceStatusViewModel> GetDevicesByPage(int page, int itemsNumber);
-        bool AddOrUpdateDevice(string name, int deviceId, int typeId);
+        bool AddOrUpdateDevice(string name, int deviceId, int typeId, string userId);
         bool DeleteDevice(int deviceId);
         List<DeviceViewModel> GetAllDevices();
         UserStatusesViewModel GetYesterdayLogsStatistics(string userId);

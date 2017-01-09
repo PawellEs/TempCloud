@@ -8,7 +8,6 @@ namespace TempCloud.ViewModel
 {
     public class DeviceFormViewModel
     {
-        public int SystemId { get; set; }
         public string Name { get; set; }
         public int DeviceId { get; set; }
         public int TypeId { get; set; }

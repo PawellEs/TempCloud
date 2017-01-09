@@ -127,7 +127,7 @@ namespace TempCloud.WebApi.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -158,11 +158,6 @@ namespace TempCloud.WebApi.Controllers
         [Route("DeleteUser")]
         public IHttpActionResult DeleteUser(string userId)
         {
-            if (!HttpContext.Current.User.IsInRole("Admin"))
-            {
-                return Unauthorized();
-            }
-
             this.service.DeleteUser(userId);
             return Ok();
         }
@@ -172,11 +167,10 @@ namespace TempCloud.WebApi.Controllers
         {
             var user = HttpContext.Current.User;
             string userId = user.Identity.GetUserId();
-            if (string.IsNullOrEmpty(userId) || (!user.IsInRole("Admin")))
+            if (string.IsNullOrEmpty(userId))
             {
                 return NotFound();
             }
-
 
             var result = this.service.GetAllUsers(userId);
             return Ok(result);
@@ -264,11 +258,7 @@ namespace TempCloud.WebApi.Controllers
         {
             var user = HttpContext.Current.User;
             string userId = user.Identity.GetUserId();
-            if (!user.IsInRole("Admin") && !user.IsInRole("Owner"))
-            {
-                return NotFound();
-            }
-
+           
             var result = this.service.EditUser(model);
             return Ok();
         }
@@ -464,9 +454,9 @@ namespace TempCloud.WebApi.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -538,28 +528,12 @@ namespace TempCloud.WebApi.Controllers
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
-            service.AssignDevicesToUser(user.Id, model.AssignedDevices);
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
             }
-            else
-            {
 
-                if (HttpContext.Current.User.IsInRole("Admin"))
-                {
-                    switch (model.RoleId)
-                    {
-                        case 1:
-                            service.SetRole(user.Id, "Admin");
-                            break;
-                        case 2:
-                            service.SetRole(user.Id, "Owner");
-                            break;
-                    }
-                }
-            }
-
+            service.SetRole(user.Id, model.RoleId);
             return Ok();
         }
 
@@ -591,7 +565,7 @@ namespace TempCloud.WebApi.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }
