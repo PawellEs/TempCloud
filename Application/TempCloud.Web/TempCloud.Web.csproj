@@ -604,13 +604,9 @@
     <Content Include="app\modules\forms\js\form-wizard\jquery.bootstrap.wizard.js" />
     <Content Include="app\modules\forms\js\form-wizard\prettify.js" />
     <Content Include="app\modules\forms\views\create-device.html" />
-    <Content Include="app\modules\forms\views\create-farm.html" />
-    <Content Include="app\modules\forms\views\create-system.html" />
     <Content Include="app\modules\forms\views\create-user.html" />
     <Content Include="app\modules\forms\views\dropzone-file-upload.html" />
     <Content Include="app\modules\forms\views\edit-device.html" />
-    <Content Include="app\modules\forms\views\edit-farm.html" />
-    <Content Include="app\modules\forms\views\edit-system.html" />
     <Content Include="app\modules\forms\views\edit-user.html" />
     <Content Include="app\modules\forms\views\form-elements.html" />
     <Content Include="app\modules\forms\views\form-validation.html" />
@@ -763,8 +759,6 @@
     <Content Include="app\modules\tables\views\devices-table.html" />
     <Content Include="app\modules\tables\views\dynamic-tables.html" />
     <Content Include="app\modules\tables\views\editable-tables.html" />
-    <Content Include="app\modules\tables\views\farms-table.html" />
-    <Content Include="app\modules\tables\views\systems-table.html" />
     <Content Include="app\modules\tables\views\users-table.html" />
     <Content Include="app\modules\tabs-accordions\views\index.html" />
     <Content Include="app\modules\tooltips\views\index.html" />

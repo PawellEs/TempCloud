@@ -76,7 +76,7 @@ namespace TempCloud.WebApi
                 //For Dev enviroment only (on production should be AllowInsecureHttp = false)
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/oauth/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(3),
                 Provider = new JwtOauthProvider(),
                 AccessTokenFormat = new CustomJwtFormat($"http://{System.Web.HttpContext.Current.Request.Url.Host}:{System.Web.HttpContext.Current.Request.Url.Port}")
             };
